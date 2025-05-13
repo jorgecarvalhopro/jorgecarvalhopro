@@ -67,6 +67,7 @@
             display: none; /* Oculto por padrão */
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+            z-index: 1000; /* Para garantir que fique sobre outros elementos */
         }
         #scrollTopBtn:hover {
             background-color: #374151; /* Cinza escuro no hover */
@@ -107,19 +108,39 @@
         .faq-question.open .icon::before {
             transform: rotate(180deg); /* Seta para cima */
         }
+
+        /* Estilos para o menu mobile */
+        /* O Tailwind já oferece classes para isso (md:hidden, hidden, md:flex etc), mas podemos adicionar transições se necessário */
+        #mobile-menu {
+            transition: max-height 0.3s ease-out;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900">
 
     <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-black">Jorge Carvalho</a>
-            <div class="space-x-4">
-                <a href="#home" class="text-gray-700 hover:text-black transition duration-300">Início</a>
-                <a href="#servicos" class="text-gray-700 hover:text-black transition duration-300">Serviços</a>
-                <a href="#portfolio" class="text-gray-700 hover:text-black transition duration-300">Portfólio</a>
-                <a href="#pacotes" class="text-gray-700 hover:text-black transition duration-300">Pacotes</a>
-                <a href="#contato" class="text-gray-700 hover:text-black transition duration-300">Contato</a>
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-black">Jorge Carvalho</a>
+                <div class="hidden md:flex space-x-4">
+                    <a href="#home" class="text-gray-700 hover:text-black transition duration-300">Início</a>
+                    <a href="#servicos" class="text-gray-700 hover:text-black transition duration-300">Serviços</a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-black transition duration-300">Portfólio</a>
+                    <a href="#pacotes" class="text-gray-700 hover:text-black transition duration-300">Pacotes</a>
+                    <a href="#contato" class="text-gray-700 hover:text-black transition duration-300">Contato</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-black focus:outline-none">
+                        <i class="fas fa-bars fa-lg"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-3 space-y-2">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Início</a>
+                <a href="#servicos" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Serviços</a>
+                <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Portfólio</a>
+                <a href="#pacotes" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Pacotes</a>
+                <a href="#contato" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Contato</a>
             </div>
         </nav>
     </header>
@@ -271,7 +292,8 @@
         </div>
     </section>
 
-    <section id="contato" class="py-16 md:py-24 bg-white"> <div class="container mx-auto px-6 text-center fade-in-section">
+    <section id="contato" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 text-center fade-in-section">
             <h2 class="text-3xl md:text-4xl font-bold mb-4 section-title">Vamos Conversar?</h2>
             <p class="text-lg text-gray-700 mb-8 max-w-xl mx-auto">Estou pronto para ajudar você a alcançar seus objetivos. Entre em contato para um orçamento personalizado ou para tirar suas dúvidas!</p>
             
@@ -399,20 +421,33 @@
         // Atualiza o ano no rodapé
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Script para navegação suave
+        // Script para navegação suave e fechar menu mobile ao clicar no link
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
+                const mobileMenu = document.getElementById('mobile-menu');
+                const menuButtonIcon = document.getElementById('mobile-menu-button').querySelector('i');
+
+                // Fecha o menu mobile se estiver aberto
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    menuButtonIcon.classList.remove('fa-times'); // Muda para X
+                    menuButtonIcon.classList.add('fa-bars');    // Muda para hambúrguer
+                }
+                
                 if (targetId === '#') {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        targetElement.scrollIntoView({
+                        // Ajuste para o cabeçalho fixo
+                        const headerOffset = document.querySelector('header').offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                        window.scrollTo({
+                            top: offsetPosition,
                             behavior: 'smooth'
                         });
                     }
@@ -475,11 +510,13 @@
             question.addEventListener('click', () => {
                 const isOpen = question.classList.contains('open');
                 
-                // Fecha todos os outros abertos (opcional, para acordeão simples)
-                // faqItems.forEach(otherItem => {
-                //     otherItem.querySelector('.faq-question').classList.remove('open');
-                //     otherItem.querySelector('.faq-answer').style.display = 'none';
-                // });
+                // Fecha todos os outros que possam estar abertos (comportamento de acordeão)
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.querySelector('.faq-question').classList.remove('open');
+                        otherItem.querySelector('.faq-answer').style.display = 'none';
+                    }
+                });
 
                 if (isOpen) {
                     question.classList.remove('open');
@@ -489,6 +526,23 @@
                     answer.style.display = 'block';
                 }
             });
+        });
+
+        // Script para o Menu Hambúrguer
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuButtonIcon = menuButton.querySelector('i');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // Alterna o ícone entre hambúrguer e X
+            if (mobileMenu.classList.contains('hidden')) {
+                menuButtonIcon.classList.remove('fa-times'); // Muda para X
+                menuButtonIcon.classList.add('fa-bars');    // Muda para hambúrguer
+            } else {
+                menuButtonIcon.classList.remove('fa-bars');    // Muda para hambúrguer
+                menuButtonIcon.classList.add('fa-times'); // Muda para X
+            }
         });
 
     </script>
