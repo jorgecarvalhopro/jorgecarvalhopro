@@ -13,7 +13,7 @@
             scroll-behavior: smooth;
         }
         .hero-bg {
-            background-color: #111827; /* Cinza bem escuro / Quase preto */
+            background-color: #111827;
         }
         .card-hover:hover {
             transform: translateY(-5px);
@@ -24,26 +24,25 @@
             display: block;
             width: 60px;
             height: 4px;
-            background-color: #000000; /* Preto */
+            background-color: #000000;
             margin: 10px auto 0;
             border-radius: 2px;
         }
         .package-card {
-            border: 1px solid #e5e7eb; /* Cinza claro para borda */
+            border: 1px solid #e5e7eb;
         }
         .package-card ul li {
             position: relative;
             padding-left: 20px;
         }
         .package-card ul li::before {
-            content: '\f00c'; /* Ícone de check do Font Awesome */
+            content: '\f00c';
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
             left: 0;
-            color: #111827; /* Preto/Cinza escuro para o check */
+            color: #111827;
         }
-        /* Animação de entrada suave */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -51,12 +50,11 @@
         .fade-in-section {
             animation: fadeIn 0.8s ease-out forwards;
         }
-        /* Estilo para o botão "Voltar ao Topo" */
         #scrollTopBtn {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #000000; /* Preto */
+            background-color: #000000;
             color: white;
             border: none;
             border-radius: 50%;
@@ -64,20 +62,18 @@
             height: 50px;
             font-size: 24px;
             cursor: pointer;
-            display: none; /* Oculto por padrão */
+            display: none;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
-            z-index: 1000; /* Para garantir que fique sobre outros elementos */
+            z-index: 1000;
         }
         #scrollTopBtn:hover {
-            background-color: #374151; /* Cinza escuro no hover */
+            background-color: #374151;
         }
-
-        /* Estilos para FAQ */
         .faq-question {
             cursor: pointer;
             padding: 1rem;
-            background-color: #f9fafb; /* Cinza bem claro */
+            background-color: #f9fafb;
             border-radius: 0.5rem;
             margin-bottom: 0.5rem;
             display: flex;
@@ -86,7 +82,7 @@
             font-weight: 600;
         }
         .faq-question:hover {
-            background-color: #f3f4f6; /* Cinza um pouco mais escuro no hover */
+            background-color: #f3f4f6;
         }
         .faq-answer {
             padding: 1rem;
@@ -94,25 +90,178 @@
             border: 1px solid #e5e7eb;
             border-top: none;
             border-radius: 0 0 0.5rem 0.5rem;
-            display: none; /* Oculto por padrão */
+            display: none;
         }
         .faq-answer p {
             margin-bottom: 0.5rem;
         }
         .faq-question .icon::before {
-            content: '\f078'; /* Seta para baixo */
+            content: '\f078';
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             transition: transform 0.3s ease;
         }
         .faq-question.open .icon::before {
-            transform: rotate(180deg); /* Seta para cima */
+            transform: rotate(180deg);
         }
-
-        /* Estilos para o menu mobile */
-        /* O Tailwind já oferece classes para isso (md:hidden, hidden, md:flex etc), mas podemos adicionar transições se necessário */
         #mobile-menu {
             transition: max-height 0.3s ease-out;
+        }
+        .calculator-input {
+            width: 60px;
+            text-align: center;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            padding: 0.5rem;
+            margin: 0 0.5rem;
+        }
+        .calculator-input:focus {
+            border-color: #000000;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+            outline: none;
+        }
+        .quantity-button {
+            background-color: #e5e7eb;
+            color: #374151;
+            border: 1px solid #d1d5db;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .quantity-button:hover {
+            background-color: #d1d5db;
+        }
+        .quantity-button:active {
+            background-color: #9ca3af;
+        }
+
+        /* Estilos para o Modal do Portfólio */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); 
+            display: none; 
+            justify-content: center;
+            align-items: center;
+            z-index: 2000; 
+            padding: 1rem;
+            overflow-y: auto; 
+        }
+        .modal-content {
+            background-color: transparent; 
+            padding: 0; 
+            border-radius: 0.5rem; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            max-width: 90vw; 
+            width: auto; 
+            max-height: 90vh; 
+            position: relative;
+            display: flex; 
+            flex-direction: column; /* Para acomodar botões de navegação abaixo da mídia */
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-close-button {
+            position: absolute;
+            top: -15px;  
+            right: -15px; 
+            font-size: 1.8rem; 
+            color: #ffffff; 
+            cursor: pointer;
+            background: rgba(0,0,0,0.6);
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            z-index: 2001; 
+        }
+        .modal-close-button:hover {
+            background: rgba(0,0,0,0.9);
+        }
+        .portfolio-item-card {
+            position: relative; 
+            cursor: pointer;
+        }
+        .play-icon-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .portfolio-item-card:hover .play-icon-overlay {
+            opacity: 1;
+        }
+        .play-icon-overlay i {
+            color: white;
+            font-size: 3rem; 
+        }
+        .modal-media-container { 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: auto; 
+            margin-bottom: 1rem; /* Espaço para os botões de navegação */
+        }
+        .modal-media-container img,
+        .modal-media-container .modal-video-container { 
+            max-width: 100%;
+            max-height: 75vh; /* Reduzido para dar espaço aos botões de navegação */
+            object-fit: contain; 
+            border-radius: 0.375rem; 
+        }
+        .modal-video-container { 
+            position: relative;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            width: 80vw; /* Ajustado para ser um pouco menor que o modal-content max-width */
+            max-width: 800px; /* Limite máximo para o vídeo */
+            background: #000;
+        }
+        .modal-video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .modal-navigation {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 300px; /* Largura dos botões de navegação */
+            margin-top: 0.5rem; /* Espaço acima dos botões */
+        }
+        .modal-nav-button {
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .modal-nav-button:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .modal-nav-button:disabled {
+            background-color: rgba(0,0,0,0.2);
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -147,7 +296,7 @@
 
     <section id="home" class="hero-bg text-white py-20 md:py-32">
         <div class="container mx-auto px-6 text-center fade-in-section">
-            <img src="https://placehold.co/150x150/FFFFFF/111827?text=JC" alt="Foto de Jorge Carvalho" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full mb-6 border-4 border-white object-cover">
+            <img src="imagens/logo-jrg-fundo-preto.png" alt="Logo - JRG" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full mb-6 border-4 border-white object-cover">
             <h1 class="text-4xl md:text-6xl font-bold mb-4">Olá, sou Jorge Carvalho!</h1>
             <p class="text-lg md:text-2xl mb-8 text-gray-300">Designer Gráfico especialista em transformar ideias em <span class="font-semibold text-white">impacto visual para redes sociais</span>.</p>
             <a href="#contato" class="bg-white hover:bg-gray-200 text-black font-semibold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg hover:shadow-xl">Entre em Contato</a>
@@ -185,8 +334,8 @@
                     <div class="text-black mb-4">
                         <i class="fas fa-lightbulb fa-3x"></i>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-3 text-gray-900">Criação de Conteúdos</h3>
-                    <p class="text-gray-700">Desenvolvimento de estratégias de conteúdo visual e textual que comunicam sua mensagem de forma eficaz e criativa.</p>
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-900">Criação de Conteúdos (bônus gratuito)</h3>
+                    <p class="text-gray-700">Produzo os textos dos seus posts com foco no seu público-alvo, como um bônus incluso no serviço.</p>
                 </div>
             </div>
         </div>
@@ -195,56 +344,50 @@
     <section id="portfolio" class="py-16 md:py-24 bg-gray-50">
         <div class="container mx-auto px-6 fade-in-section">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title">Portfólio</h2>
-            <p class="text-center text-gray-700 max-w-2xl mx-auto mb-12">Confira alguns dos meus trabalhos recentes. Cada projeto é uma história visual contada com criatividade e estratégia.</p>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
-                    <img src="https://placehold.co/600x400/CCCCCC/111827?text=Post+PB+1" alt="Exemplo de Post para Rede Social em Preto e Branco" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Campanha de Lançamento</h3>
-                        <p class="text-gray-700 text-sm">Design de posts para o lançamento de um novo produto.</p>
+            <p class="text-center text-gray-700 max-w-2xl mx-auto mb-12">Confira alguns exemplos dos meus trabalhos. Clique na categoria para ver.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="portfolio-item-card bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300"
+                     data-type="image"
+                     data-media-src="imagens/post-estatico1.jpg,imagens/post-estatico2.jpg,imagens/post-estatico3.jpg" 
+                     data-title="Posts Estáticos">
+                    <img src="imagens/capa-posts-estaticos.jpg" alt="Capa Posts Estáticos" class="w-full h-64 object-cover"> 
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-semibold">Posts Estáticos</h3>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
-                    <img src="https://placehold.co/600x400/B0B0B0/111827?text=Carrossel+PB" alt="Exemplo de Carrossel para Instagram em Preto e Branco" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Carrossel Informativo</h3>
-                        <p class="text-gray-700 text-sm">Série de carrosséis educacionais para Instagram.</p>
+                <div class="portfolio-item-card bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300"
+                     data-type="image"
+                     data-media-src="https://placehold.co/1200x800/FACC15/333?text=Carrossel+Slide+1,https://placehold.co/1200x800/FDE68A/333?text=Carrossel+Slide+2,https://placehold.co/1200x800/FBCFE8/333?text=Carrossel+Slide+3"
+                     data-title="Carrosséis">
+                     <img src="imagens/capa-carrosseis.jpg" alt="Capa Carrosséis" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-semibold">Carrosséis</h3>
                     </div>
                 </div>
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
-                    <img src="https://placehold.co/600x400/DCDCDC/111827?text=Video+Curto+PB" alt="Exemplo de Vídeo Curto Promocional em Preto e Branco" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Vídeo Promocional</h3>
-                        <p class="text-gray-700 text-sm">Edição de vídeo curto para campanha promocional.</p>
+                <div class="portfolio-item-card bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300"
+                     data-type="video"
+                     data-media-src="https://www.youtube.com/watch?v=nrtX9cmTkWU" 
+                     data-title="Vídeos Curtos">
+                     <img src="imagens/capa-videos-curtos.jpg" alt="Capa Vídeos Curtos" class="w-full h-64 object-cover">
+                    <div class="play-icon-overlay"><i class="fas fa-play"></i></div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-semibold">Vídeos Curtos</h3>
                     </div>
                 </div>
-                 <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
-                    <img src="https://placehold.co/600x400/C0C0C0/111827?text=Identidade+PB" alt="Exemplo de Identidade Visual em Posts em Preto e Branco" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Identidade Visual em Posts</h3>
-                        <p class="text-gray-700 text-sm">Criação de posts seguindo a identidade visual da marca.</p>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
-                    <img src="https://placehold.co/600x400/E0E0E0/111827?text=Story+PB" alt="Exemplo de Story Animado em Preto e Branco" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Story Animado</h3>
-                        <p class="text-gray-700 text-sm">Desenvolvimento de story animado para engajamento.</p>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300">
-                    <img src="https://placehold.co/600x400/BBBBBB/111827?text=Anúncio+PB" alt="Exemplo de Design para Anúncio em Preto e Branco" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Design para Anúncios</h3>
-                        <p class="text-gray-700 text-sm">Artes otimizadas para campanhas de tráfego pago.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-12">
-                <a href="#" class="bg-black hover:bg-gray-800 text-white font-semibold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg hover:shadow-xl">Ver Mais Projetos (Em Breve)</a>
             </div>
         </div>
     </section>
+
+    <div id="portfolio-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="modal-close" class="modal-close-button">×</button>
+            <div id="modal-media-container" class="modal-media-container">
+                </div>
+            <div id="modal-navigation-buttons" class="modal-navigation hidden"> <button id="modal-prev" class="modal-nav-button">< Anterior</button>
+                <button id="modal-next" class="modal-nav-button">Próxima ></button>
+            </div>
+        </div>
+    </div>
 
     <section id="pacotes" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6 fade-in-section">
@@ -286,8 +429,56 @@
                      <a href="#contato" class="mt-auto w-full bg-gray-800 hover:bg-black text-white text-center font-semibold py-3 px-6 rounded-lg transition duration-300">Quero este!</a>
                 </div>
             </div>
+
+            <div class="text-center mt-12 pt-8 border-t border-gray-200">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Prefere artes avulsas?</h3>
+                <p class="text-gray-700 mb-2"><span class="font-semibold">Post Estático ou Edição de Vídeo Curto:</span> R$ 35,00 por unidade.</p>
+                <p class="text-gray-700"><span class="font-semibold">Carrossel (até 10 slides):</span> R$ 60,00 por unidade.</p>
+            </div>
+
+            <div id="calculadora-personalizada" class="mt-12 pt-8 border-t border-gray-200">
+                <h3 class="text-2xl font-bold text-center mb-2 text-gray-800">Calcule seu Pacote Personalizado</h3>
+                <p class="text-center text-sm text-green-600 font-semibold mb-2">Aproveite! A partir de 6 artes no seu pacote, você ganha 10% de desconto no valor total.</p>
+                <p class="text-center text-xs text-gray-600 mb-6">(*Posts estáticos incluem: artes para feed, story, capa de reels e thumb de vídeo para YouTube.)</p>
+                <div class="max-w-lg mx-auto bg-gray-50 p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="space-y-6">
+                        <div class="flex flex-col sm:flex-row justify-between items-center">
+                            <label for="qtd-posts" class="text-gray-700 mb-2 sm:mb-0 sm:mr-4">Posts Estáticos (R$ 35 cada):</label>
+                            <div class="flex items-center">
+                                <button type="button" class="quantity-button" data-action="decrement" data-target="qtd-posts">-</button>
+                                <input type="number" id="qtd-posts" name="qtd-posts" min="0" value="0" class="calculator-input">
+                                <button type="button" class="quantity-button" data-action="increment" data-target="qtd-posts">+</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row justify-between items-center">
+                            <label for="qtd-videos" class="text-gray-700 mb-2 sm:mb-0 sm:mr-4">Vídeos Curtos (R$ 35 cada):</label>
+                            <div class="flex items-center">
+                                <button type="button" class="quantity-button" data-action="decrement" data-target="qtd-videos">-</button>
+                                <input type="number" id="qtd-videos" name="qtd-videos" min="0" value="0" class="calculator-input">
+                                <button type="button" class="quantity-button" data-action="increment" data-target="qtd-videos">+</button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row justify-between items-center">
+                            <label for="qtd-carrosseis" class="text-gray-700 mb-2 sm:mb-0 sm:mr-4">Carrosséis (R$ 60 cada):</label>
+                            <div class="flex items-center">
+                                <button type="button" class="quantity-button" data-action="decrement" data-target="qtd-carrosseis">-</button>
+                                <input type="number" id="qtd-carrosseis" name="qtd-carrosseis" min="0" value="0" class="calculator-input">
+                                <button type="button" class="quantity-button" data-action="increment" data-target="qtd-carrosseis">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-gray-300 text-center">
+                        <p class="text-gray-700 text-lg mb-1">Valor Total Estimado:</p>
+                        <p id="valor-original-desconto" class="text-gray-500 line-through text-xl hidden">R$ 0,00</p>
+                        <p id="valor-total-personalizado" class="text-3xl font-bold text-black mt-1">R$ 0,00</p>
+                        <p id="info-desconto" class="text-sm text-green-600 font-semibold mt-2 hidden"></p>
+                        <p class="text-xs text-gray-500 mt-2">Este é um valor estimado. Entre em contato para confirmar seu pacote.</p>
+                    </div>
+                </div>
+            </div>
+
             <p class="text-center text-gray-700 mt-12 text-lg">
-                Não encontrou o pacote ideal? <a href="#contato" class="text-black font-semibold hover:underline">Entre em contato</a> e solicite um orçamento personalizado para suas necessidades!
+                Não encontrou o pacote ideal ou precisa de algo diferente? <a href="#contato" class="text-black font-semibold hover:underline">Entre em contato</a> e solicite um orçamento personalizado para suas necessidades!
             </p>
         </div>
     </section>
@@ -298,19 +489,17 @@
             <p class="text-lg text-gray-700 mb-8 max-w-xl mx-auto">Estou pronto para ajudar você a alcançar seus objetivos. Entre em contato para um orçamento personalizado ou para tirar suas dúvidas!</p>
             
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mb-10">
-                <a href="mailto:jorge.carvalho.designer@example.com?subject=Contato%20Portfólio%20-%20Interesse%20em%20Serviços" class="w-full sm:w-auto bg-black hover:bg-gray-800 text-white font-semibold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg hover:shadow-xl inline-flex items-center justify-center">
+                <a href="mailto:jorgecarvalho.visual@gmail.com" class="w-full sm:w-auto bg-black hover:bg-gray-800 text-white font-semibold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg hover:shadow-xl inline-flex items-center justify-center">
                     <i class="fas fa-envelope mr-2"></i> Enviar Email
                 </a>
-                <a href="https://wa.me/5500000000000" target="_blank" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg hover:shadow-xl inline-flex items-center justify-center">
+                <a href="https://wa.me/5575991173078" target="_blank" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg hover:shadow-xl inline-flex items-center justify-center">
                     <i class="fab fa-whatsapp mr-2"></i> WhatsApp
                 </a>
             </div>
 
             <p class="text-gray-700">Ou me encontre nas redes sociais:</p>
             <div class="flex justify-center space-x-6 mt-4 mb-16">
-                <a href="#" class="text-black hover:text-gray-700 transition duration-300 text-3xl"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-black hover:text-gray-700 transition duration-300 text-3xl"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-black hover:text-gray-700 transition duration-300 text-3xl"><i class="fab fa-behance"></i></a>
+                <a href="https://www.instagram.com/jorgecarvalho.pro/" target="_blank" class="text-black hover:text-gray-700 transition duration-300 text-3xl"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
 
@@ -321,8 +510,7 @@
                     <h3 class="text-2xl font-semibold mb-4 text-gray-800">Sobre o Serviço</h3>
                     <div class="faq-item">
                         <div class="faq-question">
-                            <span>Quais tipos de arte vocês criam?</span>
-                            <span class="icon"></span>
+                            <span>Quais tipos de arte você cria?</span> <span class="icon"></span>
                         </div>
                         <div class="faq-answer">
                             <p>Crio designs para posts estáticos, carrosséis, stories, capas para destaques, banners e também edito vídeos curtos para Reels, TikTok e Shorts. Tudo personalizado para sua marca!</p>
@@ -330,8 +518,7 @@
                     </div>
                     <div class="faq-item">
                         <div class="faq-question">
-                            <span>Vocês também fazem a gestão das redes sociais?</span>
-                            <span class="icon"></span>
+                            <span>Você também faz a gestão das redes sociais?</span> <span class="icon"></span>
                         </div>
                         <div class="faq-answer">
                             <p>Meu foco principal é na criação do design e do conteúdo visual. A gestão de postagens e interação pode ser discutida como um serviço adicional, dependendo da demanda.</p>
@@ -348,6 +535,15 @@
                         </div>
                         <div class="faq-answer">
                             <p>Iniciamos com um briefing para entender suas necessidades e identidade visual. Em seguida, desenvolvo as artes e envio para aprovação. Realizo os ajustes necessários até que você esteja 100% satisfeito.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Como recebo as artes finalizadas?</span>
+                            <span class="icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Todas as artes finalizadas são entregues a você através de uma pasta compartilhada no Google Drive, organizadas e prontas para uso.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -370,6 +566,15 @@
                         </div>
                         <div class="faq-answer">
                             <p>Aceito pagamentos via Pix, transferência bancária ou boleto. Para pacotes mensais, o pagamento é realizado no início de cada ciclo.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Posso pagar uma parte no início e outra na entrega?</span>
+                            <span class="icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sim! Para pacotes personalizados ou projetos maiores, podemos combinar o pagamento de 50% do valor total para iniciar o serviço e os 50% restantes na entrega final de todo o material combinado.</p>
                         </div>
                     </div>
                      <div class="faq-item">
@@ -409,7 +614,7 @@
     </section>
 
     <footer class="bg-black text-gray-300 py-10 text-center">
-        <p>&copy; <span id="currentYear"></span> Jorge Carvalho. Todos os direitos reservados.</p>
+        <p>© <span id="currentYear"></span> Jorge Carvalho. Todos os direitos reservados.</p>
         <p class="text-sm text-gray-400">Criando designs que comunicam e conectam.</p>
     </footer>
 
@@ -429,11 +634,10 @@
                 const mobileMenu = document.getElementById('mobile-menu');
                 const menuButtonIcon = document.getElementById('mobile-menu-button').querySelector('i');
 
-                // Fecha o menu mobile se estiver aberto
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
-                    menuButtonIcon.classList.remove('fa-times'); // Muda para X
-                    menuButtonIcon.classList.add('fa-bars');    // Muda para hambúrguer
+                    menuButtonIcon.classList.remove('fa-times');
+                    menuButtonIcon.classList.add('fa-bars');
                 }
                 
                 if (targetId === '#') {
@@ -441,28 +645,17 @@
                 } else {
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        // Ajuste para o cabeçalho fixo
                         const headerOffset = document.querySelector('header').offsetHeight;
                         const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                     }
                 }
             });
         });
 
-        // Script para animação de fade-in das seções ao rolar
         const sections = document.querySelectorAll('.fade-in-section');
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1 
-        };
-
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -471,16 +664,13 @@
                 }
             });
         }, observerOptions);
-
         sections.forEach(section => {
             section.style.opacity = '0'; 
             section.style.animationPlayState = 'paused'; 
             observer.observe(section);
         });
 
-        // Script para o botão "Voltar ao Topo"
         const scrollTopBtn = document.getElementById('scrollTopBtn');
-
         window.onscroll = function() {
             if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
                 scrollTopBtn.style.display = "block";
@@ -496,28 +686,20 @@
                 }, 500); 
             }
         };
+        scrollTopBtn.addEventListener('click', function() { window.scrollTo({top: 0, behavior: 'smooth'}); });
 
-        scrollTopBtn.addEventListener('click', function() {
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        });
-
-        // Script para FAQ (Acordeão)
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
             const answer = item.querySelector('.faq-answer');
-
             question.addEventListener('click', () => {
                 const isOpen = question.classList.contains('open');
-                
-                // Fecha todos os outros que possam estar abertos (comportamento de acordeão)
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.querySelector('.faq-question').classList.remove('open');
                         otherItem.querySelector('.faq-answer').style.display = 'none';
                     }
                 });
-
                 if (isOpen) {
                     question.classList.remove('open');
                     answer.style.display = 'none';
@@ -528,20 +710,193 @@
             });
         });
 
-        // Script para o Menu Hambúrguer
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuButtonIcon = menuButton.querySelector('i');
-
         menuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            // Alterna o ícone entre hambúrguer e X
             if (mobileMenu.classList.contains('hidden')) {
-                menuButtonIcon.classList.remove('fa-times'); // Muda para X
-                menuButtonIcon.classList.add('fa-bars');    // Muda para hambúrguer
+                menuButtonIcon.classList.remove('fa-times');
+                menuButtonIcon.classList.add('fa-bars');
             } else {
-                menuButtonIcon.classList.remove('fa-bars');    // Muda para hambúrguer
-                menuButtonIcon.classList.add('fa-times'); // Muda para X
+                menuButtonIcon.classList.remove('fa-bars');
+                menuButtonIcon.classList.add('fa-times');
+            }
+        });
+
+        // Script para a Calculadora de Pacote Personalizado
+        const qtdPostsInput = document.getElementById('qtd-posts');
+        const qtdVideosInput = document.getElementById('qtd-videos');
+        const qtdCarrosseisInput = document.getElementById('qtd-carrosseis');
+        const valorTotalPersonalizadoDisplay = document.getElementById('valor-total-personalizado');
+        const valorOriginalDescontoDisplay = document.getElementById('valor-original-desconto');
+        const infoDescontoDisplay = document.getElementById('info-desconto');
+
+        const PRECO_POST_VIDEO = 35;
+        const PRECO_CARROSSEL = 60;
+        const MIN_ARTES_DESCONTO = 6;
+        const PERCENTUAL_DESCONTO = 0.10; 
+
+        function calcularTotalPersonalizado() {
+            const qtdPosts = parseInt(qtdPostsInput.value) || 0;
+            const qtdVideos = parseInt(qtdVideosInput.value) || 0;
+            const qtdCarrosseis = parseInt(qtdCarrosseisInput.value) || 0;
+
+            const totalArtes = qtdPosts + qtdVideos + qtdCarrosseis;
+            const totalSemDesconto = (qtdPosts * PRECO_POST_VIDEO) + 
+                                     (qtdVideos * PRECO_POST_VIDEO) + 
+                                     (qtdCarrosseis * PRECO_CARROSSEL);
+
+            if (totalArtes >= MIN_ARTES_DESCONTO) {
+                const valorDesconto = totalSemDesconto * PERCENTUAL_DESCONTO;
+                const totalComDesconto = totalSemDesconto - valorDesconto;
+
+                valorOriginalDescontoDisplay.textContent = `R$ ${totalSemDesconto.toFixed(2).replace('.', ',')}`;
+                valorOriginalDescontoDisplay.classList.remove('hidden');
+                
+                valorTotalPersonalizadoDisplay.textContent = `R$ ${totalComDesconto.toFixed(2).replace('.', ',')}`;
+                infoDescontoDisplay.textContent = `Desconto de 10% (R$ ${valorDesconto.toFixed(2).replace('.', ',')}) aplicado!`;
+                infoDescontoDisplay.classList.remove('hidden');
+            } else {
+                valorTotalPersonalizadoDisplay.textContent = `R$ ${totalSemDesconto.toFixed(2).replace('.', ',')}`;
+                valorOriginalDescontoDisplay.classList.add('hidden');
+                infoDescontoDisplay.classList.add('hidden');
+            }
+        }
+        
+        function handleQuantityButtonClick(event) {
+            const button = event.target.closest('.quantity-button'); 
+            if (!button) return;
+
+            const action = button.dataset.action;
+            const targetInputId = button.dataset.target;
+            const targetInput = document.getElementById(targetInputId);
+
+            if (!targetInput) return;
+
+            let currentValue = parseInt(targetInput.value) || 0;
+
+            if (action === 'increment') {
+                targetInput.value = currentValue + 1;
+            } else if (action === 'decrement') {
+                targetInput.value = Math.max(0, currentValue - 1); 
+            }
+            targetInput.dispatchEvent(new Event('input'));
+        }
+
+        document.querySelectorAll('.quantity-button').forEach(button => {
+            button.addEventListener('click', handleQuantityButtonClick);
+        });
+        
+        qtdPostsInput.addEventListener('input', calcularTotalPersonalizado);
+        qtdVideosInput.addEventListener('input', calcularTotalPersonalizado);
+        qtdCarrosseisInput.addEventListener('input', calcularTotalPersonalizado);
+
+        calcularTotalPersonalizado();
+
+        // Script para o Modal do Portfólio com Galeria
+        const portfolioItems = document.querySelectorAll('.portfolio-item-card');
+        const modal = document.getElementById('portfolio-modal');
+        const modalCloseButton = document.getElementById('modal-close');
+        const modalMediaContainer = document.getElementById('modal-media-container');
+        const modalNavigationButtons = document.getElementById('modal-navigation-buttons');
+        const modalPrevButton = document.getElementById('modal-prev');
+        const modalNextButton = document.getElementById('modal-next');
+
+        let currentMediaSources = [];
+        let currentMediaIndex = 0;
+        let currentMediaType = ''; 
+
+        function displayCurrentMediaInModal() {
+            modalMediaContainer.innerHTML = ''; 
+            const mediaSrc = currentMediaSources[currentMediaIndex];
+
+            if (currentMediaType === 'image') {
+                const img = document.createElement('img');
+                img.src = mediaSrc;
+                img.alt = "Imagem do Portfólio " + (currentMediaIndex + 1);
+                modalMediaContainer.appendChild(img);
+            } else if (currentMediaType === 'video') {
+                 if (mediaSrc && mediaSrc !== "undefined" && mediaSrc !== "null") {
+                    const iframe = document.createElement('iframe');
+                    iframe.src = mediaSrc; 
+                    iframe.title = 'Vídeo do Portfólio ' + (currentMediaIndex + 1);
+                    iframe.frameBorder = "0";
+                    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+                    iframe.allowFullscreen = true;
+                    
+                    const videoWrapper = document.createElement('div');
+                    videoWrapper.className = 'modal-video-container';
+                    videoWrapper.appendChild(iframe);
+                    modalMediaContainer.appendChild(videoWrapper);
+                } else {
+                    modalMediaContainer.innerHTML = '<p class="text-center text-white bg-black p-4 rounded-md">Link do vídeo não configurado.</p>';
+                }
+            }
+            modalPrevButton.disabled = currentMediaIndex === 0;
+            modalNextButton.disabled = currentMediaIndex === currentMediaSources.length - 1;
+        }
+
+
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', () => {
+                currentMediaType = item.dataset.type; 
+                const mediaSrcString = item.dataset.mediaSrc;
+                
+                modalMediaContainer.innerHTML = ''; 
+                modalNavigationButtons.classList.add('hidden'); 
+
+                currentMediaSources = mediaSrcString.split(',').map(src => src.trim());
+                currentMediaIndex = 0;
+
+                if (currentMediaSources.length > 0 && currentMediaSources[0] && currentMediaSources[0] !== "null" && currentMediaSources[0] !== "undefined") {
+                    displayCurrentMediaInModal(); 
+                    if (currentMediaSources.length > 1) {
+                        modalNavigationButtons.classList.remove('hidden'); 
+                    }
+                } else {
+                     modalMediaContainer.innerHTML = `<p class="text-center text-white bg-black p-4 rounded-md">Nenhuma ${currentMediaType === 'image' ? 'imagem' : 'mídia'} configurada para esta categoria.</p>`;
+                }
+                
+                modal.style.display = 'flex'; 
+                document.body.style.overflow = 'hidden'; 
+            });
+        });
+        
+        modalPrevButton.addEventListener('click', () => {
+            if (currentMediaIndex > 0) {
+                currentMediaIndex--;
+                displayCurrentMediaInModal();
+            }
+        });
+
+        modalNextButton.addEventListener('click', () => {
+            if (currentMediaIndex < currentMediaSources.length - 1) {
+                currentMediaIndex++;
+                displayCurrentMediaInModal();
+            }
+        });
+
+        function closeModal() {
+            modal.style.display = 'none';
+            modalMediaContainer.innerHTML = ''; 
+            modalNavigationButtons.classList.add('hidden'); 
+            const iframe = modalMediaContainer.querySelector('iframe');
+            if (iframe) {
+                iframe.src = ''; 
+            }
+            document.body.style.overflow = 'auto'; 
+        }
+
+        modalCloseButton.addEventListener('click', closeModal);
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) { 
+                closeModal();
+            }
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.style.display === 'flex') {
+                closeModal();
             }
         });
 
