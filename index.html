@@ -13,48 +13,48 @@
             scroll-behavior: smooth;
         }
         .hero-bg {
-            background-color: #111827;
+            background-color: #111827; /* Cor de fundo da seção hero */
         }
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px); /* Efeito de elevação no hover */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Sombra no hover */
         }
         .section-title::after {
             content: '';
             display: block;
             width: 60px;
             height: 4px;
-            background-color: #000000;
+            background-color: #000000; /* Cor da linha abaixo do título da seção */
             margin: 10px auto 0;
             border-radius: 2px;
         }
         .package-card {
-            border: 1px solid #e5e7eb;
+            border: 1px solid #e5e7eb; /* Borda dos cards de pacotes */
         }
         .package-card ul li {
             position: relative;
-            padding-left: 20px;
+            padding-left: 20px; /* Espaçamento para o ícone de check */
         }
         .package-card ul li::before {
-            content: '\f00c';
+            content: '\f00c'; /* Ícone de check do Font Awesome */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
             left: 0;
-            color: #111827;
+            color: #111827; /* Cor do ícone de check */
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .fade-in-section {
-            animation: fadeIn 0.8s ease-out forwards;
+            animation: fadeIn 0.8s ease-out forwards; /* Animação de fade-in para seções */
         }
         #scrollTopBtn {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #000000;
+            background-color: #000000; /* Cor de fundo do botão de voltar ao topo */
             color: white;
             border: none;
             border-radius: 50%;
@@ -62,50 +62,53 @@
             height: 50px;
             font-size: 24px;
             cursor: pointer;
-            display: none;
+            display: none; /* Inicialmente oculto */
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
             z-index: 1000;
         }
         #scrollTopBtn:hover {
-            background-color: #374151;
+            background-color: #374151; /* Cor de fundo do botão ao passar o mouse */
         }
-        .faq-question {
+        .faq-question { /* Estilo reutilizado para títulos das etapas do processo */
             cursor: pointer;
             padding: 1rem;
-            background-color: #f9fafb;
+            background-color: #f9fafb; /* Cor de fundo da pergunta do FAQ */
             border-radius: 0.5rem;
             margin-bottom: 0.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
+            border: 1px solid #e5e7eb;
         }
         .faq-question:hover {
-            background-color: #f3f4f6;
+            background-color: #f3f4f6; /* Cor de fundo da pergunta do FAQ ao passar o mouse */
         }
-        .faq-answer {
+        .faq-answer { /* Estilo reutilizado para detalhes das etapas do processo */
             padding: 1rem;
-            background-color: #ffffff;
+            background-color: #ffffff; /* Cor de fundo da resposta do FAQ */
             border: 1px solid #e5e7eb;
             border-top: none;
             border-radius: 0 0 0.5rem 0.5rem;
-            display: none;
+            display: none; /* Inicialmente oculto */
+            margin-bottom: 1rem; /* Adicionado para dar espaço após o conteúdo expandido */
         }
         .faq-answer p {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
         }
         .faq-question .icon::before {
-            content: '\f078';
+            content: '\f078'; /* Ícone de seta para baixo do Font Awesome */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             transition: transform 0.3s ease;
         }
         .faq-question.open .icon::before {
-            transform: rotate(180deg);
+            transform: rotate(180deg); /* Rotaciona o ícone quando a resposta está aberta */
         }
         #mobile-menu {
-            transition: max-height 0.3s ease-out;
+            transition: max-height 0.3s ease-out; /* Transição para o menu mobile */
         }
         .calculator-input {
             width: 60px;
@@ -144,49 +147,44 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85); 
-            display: none; 
+            background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro semi-transparente */
+            display: none; /* Inicialmente oculto */
             justify-content: center;
-            align-items: center;
-            z-index: 2000; 
-            padding: 1rem;
-            overflow-y: auto; 
+            align-items: flex-start; /* Alinha no topo para permitir scroll */
+            z-index: 2000;
+            padding-top: 2rem; /* Espaço no topo */
+            padding-bottom: 2rem; /* Espaço na base para scroll */
+            overflow-y: auto; /* Permite scroll vertical se o conteúdo for maior */
         }
-        .modal-content {
-            background-color: transparent; 
-            padding: 0; 
-            border-radius: 0.5rem; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            max-width: 90vw; 
-            width: auto; 
-            max-height: 90vh; 
-            position: relative;
-            display: flex; 
-            flex-direction: column; /* Para acomodar botões de navegação abaixo da mídia */
-            justify-content: center;
-            align-items: center;
+        .modal-content-scrollable { /* Container para o conteúdo que pode ser maior que a tela */
+            background-color: transparent; /* O conteúdo em si (imagem/video) terá seu próprio fundo */
+            width: 100%;
+            max-width: 1400px; /* Largura máxima do conteúdo do modal */
+            margin: 0 auto; /* Centraliza */
+            padding: 0; /* Sem padding interno, o conteúdo do modal controla isso */
+            position: relative; /* Para posicionamento de botões internos se necessário */
         }
         .modal-close-button {
-            position: absolute;
-            top: -15px;  
-            right: -15px; 
-            font-size: 1.8rem; 
-            color: #ffffff; 
+            position: fixed; /* Fixo em relação à viewport */
+            top: 20px;  /* Distância do topo */
+            right: 20px; /* Distância da direita */
+            font-size: 1.8rem; /* Tamanho do ícone de fechar */
+            color: #ffffff; /* Cor do ícone */
             cursor: pointer;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.5); /* Fundo leve para destacar o botão */
             border: none;
             border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            line-height: 35px;
-            text-align: center;
-            z-index: 2001; 
+            width: 40px;
+            height: 40px;
+            line-height: 40px; /* Centraliza o 'x' verticalmente */
+            text-align: center; /* Centraliza o 'x' horizontalmente */
+            z-index: 2002; /* Acima do conteúdo do modal */
         }
         .modal-close-button:hover {
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.8); /* Escurece o fundo no hover */
         }
         .portfolio-item-card {
-            position: relative; 
+            position: relative; /* Para o overlay do ícone de play */
             cursor: pointer;
         }
         .play-icon-overlay {
@@ -199,39 +197,36 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            opacity: 0;
+            opacity: 0; /* Inicialmente invisível */
             transition: opacity 0.3s ease;
         }
         .portfolio-item-card:hover .play-icon-overlay {
-            opacity: 1;
+            opacity: 1; /* Visível no hover */
         }
         .play-icon-overlay i {
             color: white;
-            font-size: 3rem; 
+            font-size: 3rem; /* Tamanho do ícone de play */
         }
-        .modal-media-container { 
+        .modal-media-container { /* Container para a imagem ou vídeo dentro do modal */
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column; /* Para acomodar navegação abaixo da mídia */
+            align-items: center; /* Centraliza a mídia */
             width: 100%;
-            height: auto; 
-            margin-bottom: 1rem; /* Espaço para os botões de navegação */
         }
-        .modal-media-container img,
-        .modal-media-container .modal-video-container { 
-            max-width: 100%;
-            max-height: 75vh; /* Reduzido para dar espaço aos botões de navegação */
-            object-fit: contain; 
-            border-radius: 0.375rem; 
+        .modal-media-container img { /* Estilo para imagem no modal */
+            width: 100%; /* Ocupa toda a largura do container de mídia */
+            height: auto; /* Mantém a proporção */
+            display: block; /* Remove espaço extra abaixo da imagem */
+            border-radius: 0; /* Sem bordas arredondadas para a imagem em si */
         }
-        .modal-video-container { 
+         .modal-media-container .modal-video-container { /* Wrapper para o iframe do vídeo */
+            max-width: 100%; /* Garante que não ultrapasse o container */
+            width: 100%; /* Ocupa a largura disponível */
+            height: auto;
+            padding-bottom: 56.25%; /* Proporção 16:9 para vídeos */
             position: relative;
-            padding-bottom: 56.25%; 
-            height: 0;
-            overflow: hidden;
-            width: 80vw; /* Ajustado para ser um pouco menor que o modal-content max-width */
-            max-width: 800px; /* Limite máximo para o vídeo */
-            background: #000;
+            background: #000; /* Fundo preto para o vídeo */
+            margin-bottom: 1rem; /* Espaço se houver botões de navegação */
         }
         .modal-video-container iframe {
             position: absolute;
@@ -245,23 +240,45 @@
             justify-content: space-between;
             width: 100%;
             max-width: 300px; /* Largura dos botões de navegação */
-            margin-top: 0.5rem; /* Espaço acima dos botões */
+            margin-top: 1rem; /* Espaço acima dos botões */
+            padding-bottom: 1rem; /* Espaço abaixo dos botões */
         }
         .modal-nav-button {
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(255,255,255,0.2); /* Cor dos botões de navegação */
             color: white;
-            border: none;
+            border: 1px solid rgba(255,255,255,0.3);
             padding: 0.5rem 1rem;
             border-radius: 0.375rem;
             cursor: pointer;
             font-size: 0.9rem;
         }
         .modal-nav-button:hover {
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(255,255,255,0.4);
         }
         .modal-nav-button:disabled {
-            background-color: rgba(0,0,0,0.2);
+            background-color: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.3);
             cursor: not-allowed;
+        }
+        .availability-badge { /* Estilo para o aviso de disponibilidade */
+            display: inline-block;
+            background-color: #10B981; /* Verde esmeralda Tailwind */
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 9999px; /* pill shape */
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 600; /* font-semibold */
+            margin-top: 1rem; /* Espaçamento acima */
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { /* Animação de pulso sutil */
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
         }
     </style>
 </head>
@@ -270,11 +287,12 @@
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="#" class="text-2xl font-bold text-black">Jorge Carvalho</a>
+                <a href="index.html" class="text-2xl font-bold text-black">Jorge Carvalho</a>
                 <div class="hidden md:flex space-x-4">
                     <a href="#home" class="text-gray-700 hover:text-black transition duration-300">Início</a>
                     <a href="#servicos" class="text-gray-700 hover:text-black transition duration-300">Serviços</a>
                     <a href="#portfolio" class="text-gray-700 hover:text-black transition duration-300">Portfólio</a>
+                    <a href="#processo" class="text-gray-700 hover:text-black transition duration-300">Meu Processo</a>
                     <a href="#pacotes" class="text-gray-700 hover:text-black transition duration-300">Pacotes</a>
                     <a href="#contato" class="text-gray-700 hover:text-black transition duration-300">Contato</a>
                 </div>
@@ -288,6 +306,7 @@
                 <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Início</a>
                 <a href="#servicos" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Serviços</a>
                 <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Portfólio</a>
+                <a href="#processo" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Meu Processo</a>
                 <a href="#pacotes" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Pacotes</a>
                 <a href="#contato" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Contato</a>
             </div>
@@ -296,19 +315,13 @@
 
     <section id="home" class="hero-bg text-white py-20 md:py-32">
         <div class="container mx-auto px-6 text-center fade-in-section">
-            <img src="imagens/logo-jrg-fundo-preto.png" alt="Logo - JRG" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full mb-6 border-4 border-white object-cover">
+            <img src="imagens/logo-jrg-fundo-preto.png" alt="Logo - JRG" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full mb-4 border-4 border-white object-cover" onerror="this.onerror=null;this.src='https://placehold.co/160x160/FFFFFF/111827?text=Logo+JRG';">
+            <p class="availability-badge mb-4">
+                <i class="fas fa-calendar-check mr-1"></i> Disponível para Novos Projetos!
+            </p>
             <h1 class="text-4xl md:text-6xl font-bold mb-4">Olá, sou Jorge Carvalho!</h1>
             <p class="text-lg md:text-2xl mb-8 text-gray-300">Designer Gráfico especialista em transformar ideias em <span class="font-semibold text-white">impacto visual para redes sociais</span>.</p>
-            <a href="#contato" class="bg-white hover:bg-gray-200 text-black font-semibold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg hover:shadow-xl">Entre em Contato</a>
-        </div>
-    </section>
-
-    <section id="sobre" class="py-16 md:py-24 bg-gray-50">
-        <div class="container mx-auto px-6 fade-in-section">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-title">Sobre Mim</h2>
-            <p class="text-center text-gray-700 max-w-2xl mx-auto mb-12 text-lg">
-                Com paixão por design e foco em resultados, ajudo marcas e profissionais a se destacarem no universo digital. Minha especialidade é criar mídias envolventes e estratégicas para redes sociais, desde posts estáticos e carrosséis até vídeos curtos dinâmicos. Vamos juntos elevar a presença online da sua marca!
-            </p>
+            <a href="#servicos" class="bg-white hover:bg-gray-200 text-black font-semibold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg hover:shadow-xl">Meus Serviços</a>
         </div>
     </section>
 
@@ -348,27 +361,24 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="portfolio-item-card bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300"
                      data-type="image"
-                     data-media-src="imagens/post-estatico1.jpg,imagens/post-estatico2.jpg,imagens/post-estatico3.jpg" 
-                     data-title="Posts Estáticos">
-                    <img src="imagens/capa-posts-estaticos.jpg" alt="Capa Posts Estáticos" class="w-full h-64 object-cover"> 
+                     data-media-src="nada.png" data-title="Posts Estáticos">
+                    <img src="nada.png" alt="Capa Posts Estáticos" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Posts+Est%C3%A1ticos';">
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-semibold">Posts Estáticos</h3>
                     </div>
                 </div>
                 <div class="portfolio-item-card bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300"
                      data-type="image"
-                     data-media-src="https://placehold.co/1200x800/FACC15/333?text=Carrossel+Slide+1,https://placehold.co/1200x800/FDE68A/333?text=Carrossel+Slide+2,https://placehold.co/1200x800/FBCFE8/333?text=Carrossel+Slide+3"
-                     data-title="Carrosséis">
-                     <img src="imagens/capa-carrosseis.jpg" alt="Capa Carrosséis" class="w-full h-64 object-cover">
+                     data-media-src="nada.png" data-title="Carrosséis">
+                     <img src="nada.png" alt="Capa Carrosséis" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Carross%C3%A9is';">
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-semibold">Carrosséis</h3>
                     </div>
                 </div>
                 <div class="portfolio-item-card bg-white rounded-lg overflow-hidden shadow-lg card-hover transition duration-300"
                      data-type="video"
-                     data-media-src="https://www.youtube.com/watch?v=nrtX9cmTkWU" 
-                     data-title="Vídeos Curtos">
-                     <img src="imagens/capa-videos-curtos.jpg" alt="Capa Vídeos Curtos" class="w-full h-64 object-cover">
+                     data-media-src="nadas.png" data-title="Vídeos Curtos">
+                     <img src="nada.png" alt="Capa Vídeos Curtos" class="w-full h-64 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=V%C3%ADdeos+Curtos';">
                     <div class="play-icon-overlay"><i class="fas fa-play"></i></div>
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-semibold">Vídeos Curtos</h3>
@@ -379,68 +389,100 @@
     </section>
 
     <div id="portfolio-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button id="modal-close" class="modal-close-button">×</button>
+        <div class="modal-content-scrollable">
             <div id="modal-media-container" class="modal-media-container">
                 </div>
-            <div id="modal-navigation-buttons" class="modal-navigation hidden"> <button id="modal-prev" class="modal-nav-button">< Anterior</button>
+            <div id="modal-navigation-buttons" class="modal-navigation hidden">
+                <button id="modal-prev" class="modal-nav-button">< Anterior</button>
                 <button id="modal-next" class="modal-nav-button">Próxima ></button>
             </div>
         </div>
+        <button id="modal-close" class="modal-close-button">×</button>
     </div>
 
-    <section id="pacotes" class="py-16 md:py-24 bg-white">
+    <section id="processo" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6 fade-in-section">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-2 section-title">Pacotes de Design para Redes Sociais</h2>
-            <p class="text-center text-sm text-gray-600 mb-10">Todo o material é produzido diretamente por mim, Jorge Carvalho.</p>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg package-card card-hover transition duration-300 flex flex-col">
-                    <h3 class="text-2xl font-semibold mb-2 text-black">Pacote Básico</h3>
-                    <p class="text-4xl font-bold mb-4 text-gray-900">R$ 165<span class="text-lg font-normal text-gray-500">,00/mês</span></p>
-                    <ul class="text-gray-700 space-y-2 mb-6 flex-grow">
-                        <li>4 artes por mês (1 por semana)</li>
-                        <li>2 artes fixas</li>
-                        <li>1 carrossel</li>
-                        <li>1 vídeo curto</li>
-                    </ul>
-                    <a href="#contato" class="mt-auto w-full bg-gray-800 hover:bg-black text-white text-center font-semibold py-3 px-6 rounded-lg transition duration-300">Quero este!</a>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 section-title">Meu Processo de Trabalho</h2>
+            <p class="text-center text-gray-700 max-w-2xl mx-auto mb-12">Veja como transformo suas ideias em resultados incríveis, passo a passo, de forma clara e eficiente.</p>
+            <div class="max-w-3xl mx-auto">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span><strong>Etapa 1:</strong> Entendendo Suas Necessidades (Briefing Online)</span>
+                        <span class="icon"></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tudo começa aqui! Para otimizar meu tempo e garantir que capturo todas as suas ideias, você preencherá um formulário de briefing online detalhado, diretamente aqui no site. Nele, você poderá especificar seus objetivos, público-alvo, preferências de estilo, referências e todas as informações cruciais para o projeto. Quanto mais detalhes você fornecer, mais alinhado com suas expectativas será o resultado!</p>
+                        <p class="mt-2"><strong>O que você faz:</strong> Preenche o formulário de briefing com todas as informações do projeto.</p>
+                        <p class="mt-1"><strong>O que eu faço:</strong> Analiso cuidadosamente todas as suas respostas.</p>
+                        <a href="briefing.html" target="_blank" class="inline-block mt-4 bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg text-sm transition duration-300 shadow-md hover:shadow-lg">Abrir Formulário de Briefing <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg package-card card-hover transition duration-300 border-2 border-black relative flex flex-col">
-                    <span class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full">MAIS POPULAR</span>
-                    <h3 class="text-2xl font-semibold mb-2 text-black">Pacote Intermediário</h3>
-                    <p class="text-4xl font-bold mb-4 text-gray-900">R$ 329<span class="text-lg font-normal text-gray-500">,90/mês</span></p>
-                    <ul class="text-gray-700 space-y-2 mb-6 flex-grow">
-                        <li>8 artes por mês (2 por semana)</li>
-                        <li>3 artes fixas</li>
-                        <li>3 carrosséis</li>
-                        <li>2 vídeos curtos</li>
-                    </ul>
-                     <a href="#contato" class="mt-auto w-full bg-black hover:bg-gray-800 text-white text-center font-semibold py-3 px-6 rounded-lg transition duration-300">Quero este!</a>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span><strong>Etapa 2:</strong> Análise e Proposta Personalizada</span>
+                        <span class="icon"></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Com base nas informações coletadas no briefing, eu analiso todos os detalhes e preparo uma proposta comercial personalizada para você. Essa proposta incluirá o escopo completo do projeto, os serviços que serão realizados, os prazos estimados para cada etapa e o investimento total. Tudo será apresentado de forma clara e transparente para sua avaliação.</p>
+                        <p class="mt-2"><strong>O que eu faço:</strong> Elaboro e envio a proposta comercial detalhada.</p>
+                        <p class="mt-1"><strong>O que você faz:</strong> Analisa a proposta e, se estiver tudo certo, aprova para eu dar o próximo passo.</p>
+                    </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-xl shadow-lg package-card card-hover transition duration-300 flex flex-col">
-                    <h3 class="text-2xl font-semibold mb-2 text-black">Pacote Avançado</h3>
-                    <p class="text-4xl font-bold mb-4 text-gray-900">R$ 499<span class="text-lg font-normal text-gray-500">,90/mês</span></p>
-                    <ul class="text-gray-700 space-y-2 mb-6 flex-grow">
-                        <li>12 artes por mês (3 por semana)</li>
-                        <li>5 artes fixas</li>
-                        <li>4 carrosséis</li>
-                        <li>3 vídeos curtos</li>
-                    </ul>
-                     <a href="#contato" class="mt-auto w-full bg-gray-800 hover:bg-black text-white text-center font-semibold py-3 px-6 rounded-lg transition duration-300">Quero este!</a>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span><strong>Etapa 3:</strong> Mãos à Obra! Criação e Desenvolvimento</span>
+                        <span class="icon"></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Com a proposta aprovada e o pagamento inicial realizado (conforme combinado), é hora de colocar a mão na massa! Inicio a criação dos seus posts, a edição dos vídeos ou o desenvolvimento do conteúdo. Você será informado sobre o andamento e, dependendo do projeto, posso ter pontos de verificação para garantir que estou no caminho certo.</p>
+                        <p class="mt-2"><strong>O que eu faço:</strong> Desenvolvo todo o material criativo com base no briefing e na proposta.</p>
+                        <p class="mt-1"><strong>O que você faz:</strong> Aguarda ansiosamente pelas primeiras prévias!</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span><strong>Etapa 4:</strong> Revisão e Ajustes Finos</span>
+                        <span class="icon"></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Assim que a primeira versão do material estiver pronta, eu a enviarei para sua avaliação. Este é o momento de você dar seu feedback e solicitar os ajustes necessários. O número de rodadas de revisão estará especificado na proposta, mas meu objetivo é sempre garantir que você fique 100% satisfeito com o resultado final.</p>
+                        <p class="mt-2"><strong>O que eu faço:</strong> Envio o material para sua aprovação e realizo os ajustes solicitados.</p>
+                        <p class="mt-1"><strong>O que você faz:</strong> Revisa o material e envia seu feedback detalhado.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span><strong>Etapa 5:</strong> Entrega Final e Sucesso!</span>
+                        <span class="icon"></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Após todos os ajustes e sua aprovação final, o material é preparado e entregue a você. Geralmente, disponibilizo os arquivos em uma pasta compartilhada no Google Drive, tudo organizado e nos formatos corretos para uso nas redes sociais. E pronto! Seu conteúdo visual está preparado para engajar seu público.</p>
+                        <p class="mt-2"><strong>O que eu faço:</strong> Organizo e entrego todos os arquivos finais.</p>
+                        <p class="mt-1"><strong>O que você faz:</strong> Recebe o material e começa a brilhar nas redes sociais!</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="text-center mt-12 pt-8 border-t border-gray-200">
-                <h3 class="text-xl font-semibold text-gray-800 mb-4">Prefere artes avulsas?</h3>
-                <p class="text-gray-700 mb-2"><span class="font-semibold">Post Estático ou Edição de Vídeo Curto:</span> R$ 35,00 por unidade.</p>
-                <p class="text-gray-700"><span class="font-semibold">Carrossel (até 10 slides):</span> R$ 60,00 por unidade.</p>
+            <div class="text-center mt-12">
+                <a href="briefing.html" target="_blank" class="bg-black hover:bg-gray-800 text-white font-semibold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg hover:shadow-xl inline-flex items-center justify-center">
+                    <i class="fas fa-clipboard-list mr-2"></i> Iniciar Briefing Detalhado
+                </a>
             </div>
+        </div>
+    </section>
 
-            <div id="calculadora-personalizada" class="mt-12 pt-8 border-t border-gray-200">
-                <h3 class="text-2xl font-bold text-center mb-2 text-gray-800">Calcule seu Pacote Personalizado</h3>
+    <section id="pacotes" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6 fade-in-section">
+            <div id="calculadora-personalizada" class="mb-16 pt-8"> 
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-2 section-title">Monte Seu Pacote</h2> 
                 <p class="text-center text-sm text-green-600 font-semibold mb-2">Aproveite! A partir de 6 artes no seu pacote, você ganha 10% de desconto no valor total.</p>
                 <p class="text-center text-xs text-gray-600 mb-6">(*Posts estáticos incluem: artes para feed, story, capa de reels e thumb de vídeo para YouTube.)</p>
-                <div class="max-w-lg mx-auto bg-gray-50 p-6 md:p-8 rounded-xl shadow-md">
+                <p class="text-center text-gray-700 mb-8 max-w-xl mx-auto text-sm md:text-base">
+                    Não sabe quantas artes precisa por mês? É simples: pense em quantos posts você pretende fazer por semana e multiplique esse número por 4. Essa será a quantidade de artes que você precisa no mês.
+                    <br> 
+                    <strong>Por exemplo:</strong> se você planeja publicar 3 posts por semana, precisará de 12 artes no mês (3 posts/semana × 4 semanas).
+                </p>
+                <div class="max-w-lg mx-auto bg-white p-6 md:p-8 rounded-xl shadow-md">
                     <div class="space-y-6">
                         <div class="flex flex-col sm:flex-row justify-between items-center">
                             <label for="qtd-posts" class="text-gray-700 mb-2 sm:mb-0 sm:mr-4">Posts Estáticos (R$ 35 cada):</label>
@@ -472,9 +514,61 @@
                         <p id="valor-original-desconto" class="text-gray-500 line-through text-xl hidden">R$ 0,00</p>
                         <p id="valor-total-personalizado" class="text-3xl font-bold text-black mt-1">R$ 0,00</p>
                         <p id="info-desconto" class="text-sm text-green-600 font-semibold mt-2 hidden"></p>
-                        <p class="text-xs text-gray-500 mt-2">Este é um valor estimado. Entre em contato para confirmar seu pacote.</p>
+                        <p class="text-xs text-gray-500 mt-2">Este é um valor estimado. <a href="briefing.html" target="_blank" class="text-black font-semibold hover:underline">Solicite seu orçamento personalizado</a> para confirmar.</p>
                     </div>
                 </div>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-2 section-title">Pacotes Prontos</h2>
+            <p class="text-center text-sm text-gray-600 mb-10">Todo o material é produzido diretamente por mim, Jorge Carvalho.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg package-card card-hover transition duration-300 flex flex-col">
+                    <h3 class="text-2xl font-semibold mb-2 text-black">Pacote Básico</h3>
+                    <p class="text-sm text-gray-500 line-through">De R$ 330,00</p>
+                    <p class="text-4xl font-bold mb-1 text-gray-900">R$ 297<span class="text-lg font-normal text-gray-500">,00/mês</span></p>
+                    <p class="text-sm font-semibold text-green-600 mb-4">Economize 10%!</p>
+                    <ul class="text-gray-700 space-y-2 mb-6 flex-grow">
+                        <li>8 artes por mês (2 por semana)</li>
+                        <li>4 artes estáticas</li>
+                        <li>2 carrosséis</li>
+                        <li>2 vídeos curtos</li>
+                    </ul>
+                    <a href="briefing.html?pacote=basico" target="_blank" class="mt-auto w-full bg-gray-800 hover:bg-black text-white text-center font-semibold py-3 px-6 rounded-lg transition duration-300">Quero este!</a>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg package-card card-hover transition duration-300 border-2 border-black relative flex flex-col">
+                    <span class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black text-white text-xs font-semibold px-3 py-1 rounded-full">MAIS POPULAR</span>
+                    <h3 class="text-2xl font-semibold mb-2 text-black">Pacote Intermediário</h3>
+                    <p class="text-sm text-gray-500 line-through">De R$ 495,00</p>
+                    <p class="text-4xl font-bold mb-1 text-gray-900">R$ 396<span class="text-lg font-normal text-gray-500">,00/mês</span></p>
+                    <p class="text-sm font-semibold text-green-600 mb-4">Economize 20%!</p>
+                    <ul class="text-gray-700 space-y-2 mb-6 flex-grow">
+                        <li>12 artes por mês (3 por semana)</li>
+                        <li>6 artes estáticas</li>
+                        <li>3 carrosséis</li>
+                        <li>3 vídeos curtos</li>
+                    </ul>
+                     <a href="briefing.html?pacote=intermediario" target="_blank" class="mt-auto w-full bg-black hover:bg-gray-800 text-white text-center font-semibold py-3 px-6 rounded-lg transition duration-300">Quero este!</a>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg package-card card-hover transition duration-300 flex flex-col">
+                    <h3 class="text-2xl font-semibold mb-2 text-black">Pacote Avançado</h3>
+                    <p class="text-sm text-gray-500 line-through">De R$ 1.180,00</p>
+                    <p class="text-4xl font-bold mb-1 text-gray-900">R$ 896<span class="text-lg font-normal text-gray-500">,00/mês</span></p>
+                    <p class="text-sm font-semibold text-green-600 mb-4">Economize 24%!</p>
+                    <ul class="text-gray-700 space-y-2 mb-6 flex-grow">
+                        <li>28 artes por mês (7 por semana)</li>
+                        <li>10 artes estáticas</li>
+                        <li>8 carrosséis</li>
+                        <li>10 vídeos curtos</li>
+                    </ul>
+                     <a href="briefing.html?pacote=avancado" target="_blank" class="mt-auto w-full bg-gray-800 hover:bg-black text-white text-center font-semibold py-3 px-6 rounded-lg transition duration-300">Quero este!</a>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 pt-8 border-t border-gray-200">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Prefere artes avulsas?</h3>
+                <p class="text-gray-700 mb-2"><span class="font-semibold">Post Estático ou Edição de Vídeo Curto:</span> R$ 35,00 por unidade.</p>
+                <p class="text-gray-700"><span class="font-semibold">Carrossel (até 10 slides):</span> R$ 60,00 por unidade.</p>
+                 <p class="mt-4"><a href="briefing.html?tipo=avulso" target="_blank" class="text-black font-semibold hover:underline">Solicitar Artes Avulsas <i class="fas fa-arrow-right ml-1"></i></a></p>
             </div>
 
             <p class="text-center text-gray-700 mt-12 text-lg">
@@ -485,9 +579,9 @@
 
     <section id="contato" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6 text-center fade-in-section">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4 section-title">Vamos Conversar?</h2>
-            <p class="text-lg text-gray-700 mb-8 max-w-xl mx-auto">Estou pronto para ajudar você a alcançar seus objetivos. Entre em contato para um orçamento personalizado ou para tirar suas dúvidas!</p>
-            
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 section-title">Dúvidas?</h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-xl mx-auto">Estou pronto para ajudar você a alcançar seus objetivos. Entre em contato para um orçamento personalizado ou para tirar suas dúvidas (mas antes, confira o FAQ logo abaixo)!</p>
+
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mb-10">
                 <a href="mailto:jorgecarvalho.visual@gmail.com" class="w-full sm:w-auto bg-black hover:bg-gray-800 text-white font-semibold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg hover:shadow-xl inline-flex items-center justify-center">
                     <i class="fas fa-envelope mr-2"></i> Enviar Email
@@ -530,11 +624,11 @@
                     <h3 class="text-2xl font-semibold mb-4 text-gray-800">Sobre o Processo</h3>
                     <div class="faq-item">
                         <div class="faq-question">
-                            <span>Como funciona o processo de criação?</span>
+                            <span>Como funciona o meu processo de criação?</span>
                             <span class="icon"></span>
                         </div>
                         <div class="faq-answer">
-                            <p>Iniciamos com um briefing para entender suas necessidades e identidade visual. Em seguida, desenvolvo as artes e envio para aprovação. Realizo os ajustes necessários até que você esteja 100% satisfeito.</p>
+                            <p>Inicio com um briefing para entender suas necessidades e identidade visual. Em seguida, desenvolvo as artes e envio para aprovação. Realizo os ajustes necessários até que você esteja 100% satisfeito.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -592,11 +686,11 @@
                     <h3 class="text-2xl font-semibold mb-4 text-gray-800">Sobre Contrato</h3>
                     <div class="faq-item">
                         <div class="faq-question">
-                            <span>Precisamos assinar um contrato?</span>
+                            <span>É preciso assinar um contrato?</span>
                             <span class="icon"></span>
                         </div>
                         <div class="faq-answer">
-                            <p>Para maior segurança e clareza para ambas as partes, um contrato de prestação de serviços será formalizado a partir do segundo mês de parceria. O primeiro mês serve como um período de experiência para avaliarmos se a parceria funciona bem para ambos, sem a necessidade de um contrato formal imediato.</p>
+                            <p>Para maior segurança e clareza para ambas as partes, um contrato de prestação de serviços será formalizado a partir do segundo mês de parceria. O primeiro mês serve como um período de experiência para avaliar se a parceria funciona bem para você e para mim, sem a necessidade de um contrato formal imediato.</p>
                         </div>
                     </div>
                      <div class="faq-item">
@@ -627,104 +721,139 @@
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
         // Script para navegação suave e fechar menu mobile ao clicar no link
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"], a[href^="index.html#"]').forEach(anchor => { 
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const mobileMenu = document.getElementById('mobile-menu');
-                const menuButtonIcon = document.getElementById('mobile-menu-button').querySelector('i');
+                const targetUrl = new URL(this.href, window.location.origin);
+                const currentUrl = new URL(window.location.href, window.location.origin);
 
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    menuButtonIcon.classList.remove('fa-times');
-                    menuButtonIcon.classList.add('fa-bars');
-                }
-                
-                if (targetId === '#') {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const headerOffset = document.querySelector('header').offsetHeight;
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                // Verifica se é um link para a mesma página e se tem uma âncora
+                if (targetUrl.pathname === currentUrl.pathname && targetUrl.hash) {
+                    e.preventDefault(); // Previne o comportamento padrão do link
+                    const targetId = targetUrl.hash; // Pega o ID da âncora (ex: #servicos)
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const menuButtonIcon = document.getElementById('mobile-menu-button').querySelector('i');
+
+                    // Fecha o menu mobile se estiver aberto
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        if (menuButtonIcon) {
+                            menuButtonIcon.classList.remove('fa-times');
+                            menuButtonIcon.classList.add('fa-bars');
+                        }
+                    }
+                    
+                    // Rolagem suave para o topo se o link for apenas "#"
+                    if (targetId === '#') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            const header = document.querySelector('header'); // Seleciona o cabeçalho
+                            const headerOffset = header ? header.offsetHeight : 0; // Altura do cabeçalho
+                            const elementPosition = targetElement.getBoundingClientRect().top; // Posição do elemento relativo à viewport
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset; // Calcula a posição final
+                            
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
                     }
                 }
+                // Se for um link para outra página (ex: briefing.html), não faz nada aqui, deixa o navegador carregar
             });
         });
 
+        // Animação de fade-in para seções ao rolar
         const sections = document.querySelectorAll('.fade-in-section');
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.animationPlayState = 'running';
-                    observer.unobserve(entry.target); 
+                    observer.unobserve(entry.target); // Para a observação após a animação
                 }
             });
         }, observerOptions);
         sections.forEach(section => {
-            section.style.opacity = '0'; 
-            section.style.animationPlayState = 'paused'; 
+            section.style.opacity = '0'; // Começa invisível
+            section.style.animationPlayState = 'paused'; // Pausa a animação inicialmente
             observer.observe(section);
         });
 
+        // Botão de voltar ao topo
         const scrollTopBtn = document.getElementById('scrollTopBtn');
-        window.onscroll = function() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                scrollTopBtn.style.display = "block";
-                scrollTopBtn.style.opacity = "1";
-                scrollTopBtn.style.visibility = "visible";
-            } else {
-                scrollTopBtn.style.opacity = "0";
-                scrollTopBtn.style.visibility = "hidden";
-                setTimeout(() => {
-                    if (scrollTopBtn.style.opacity === "0") { 
-                         scrollTopBtn.style.display = "none";
-                    }
-                }, 500); 
-            }
-        };
-        scrollTopBtn.addEventListener('click', function() { window.scrollTo({top: 0, behavior: 'smooth'}); });
-
+        if (scrollTopBtn) { // Verifica se o botão existe
+            window.onscroll = function() {
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    scrollTopBtn.style.display = "block";
+                    scrollTopBtn.style.opacity = "1";
+                    scrollTopBtn.style.visibility = "visible";
+                } else {
+                    scrollTopBtn.style.opacity = "0";
+                    scrollTopBtn.style.visibility = "hidden";
+                    // Garante que o display:none seja aplicado após a transição de opacidade
+                    setTimeout(() => {
+                        if (scrollTopBtn.style.opacity === "0") { 
+                             scrollTopBtn.style.display = "none";
+                        }
+                    }, 500); // Tempo da transição de opacidade (0.5s)
+                }
+            };
+            scrollTopBtn.addEventListener('click', function() { window.scrollTo({top: 0, behavior: 'smooth'}); });
+        }
+        
+        // Funcionalidade do FAQ (Acordeão) e Etapas do Processo
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
-            const answer = item.querySelector('.faq-answer');
-            question.addEventListener('click', () => {
-                const isOpen = question.classList.contains('open');
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.querySelector('.faq-question').classList.remove('open');
-                        otherItem.querySelector('.faq-answer').style.display = 'none';
+            const answer = item.querySelector('.faq-answer');     
+            
+            if (question && answer) { // Garante que ambos os elementos existem
+                question.addEventListener('click', () => {
+                    const isOpen = question.classList.contains('open');
+                    
+                    // Fecha todos os outros itens do FAQ antes de abrir o clicado (comportamento de acordeão)
+                    faqItems.forEach(otherItem => {
+                        const otherQuestion = otherItem.querySelector('.faq-question');
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        if (otherItem !== item && otherQuestion && otherAnswer) { // Não mexe no item atual
+                            otherQuestion.classList.remove('open');
+                            otherAnswer.style.display = 'none';
+                        }
+                    });
+                    
+                    // Alterna o estado do item clicado
+                    if (isOpen) {
+                        question.classList.remove('open');
+                        answer.style.display = 'none';
+                    } else {
+                        question.classList.add('open');
+                        answer.style.display = 'block';
                     }
                 });
-                if (isOpen) {
-                    question.classList.remove('open');
-                    answer.style.display = 'none';
-                } else {
-                    question.classList.add('open');
-                    answer.style.display = 'block';
-                }
-            });
-        });
-
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuButtonIcon = menuButton.querySelector('i');
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if (mobileMenu.classList.contains('hidden')) {
-                menuButtonIcon.classList.remove('fa-times');
-                menuButtonIcon.classList.add('fa-bars');
-            } else {
-                menuButtonIcon.classList.remove('fa-bars');
-                menuButtonIcon.classList.add('fa-times');
             }
         });
 
-        // Script para a Calculadora de Pacote Personalizado
+        // Menu Mobile Toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuButton && mobileMenu) { // Verifica se os elementos existem
+            const menuButtonIcon = menuButton.querySelector('i');
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                // Alterna o ícone do botão do menu
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuButtonIcon.classList.remove('fa-times');
+                    menuButtonIcon.classList.add('fa-bars');
+                } else {
+                    menuButtonIcon.classList.remove('fa-bars');
+                    menuButtonIcon.classList.add('fa-times');
+                }
+            });
+        }
+
+        // Calculadora de Pacote Personalizado
         const qtdPostsInput = document.getElementById('qtd-posts');
         const qtdVideosInput = document.getElementById('qtd-videos');
         const qtdCarrosseisInput = document.getElementById('qtd-carrosseis');
@@ -735,7 +864,7 @@
         const PRECO_POST_VIDEO = 35;
         const PRECO_CARROSSEL = 60;
         const MIN_ARTES_DESCONTO = 6;
-        const PERCENTUAL_DESCONTO = 0.10; 
+        const PERCENTUAL_DESCONTO = 0.10; // 10%
 
         function calcularTotalPersonalizado() {
             const qtdPosts = parseInt(qtdPostsInput.value) || 0;
@@ -764,8 +893,9 @@
             }
         }
         
+        // Função para lidar com cliques nos botões de quantidade +/-
         function handleQuantityButtonClick(event) {
-            const button = event.target.closest('.quantity-button'); 
+            const button = event.target.closest('.quantity-button');
             if (!button) return;
 
             const action = button.dataset.action;
@@ -779,22 +909,27 @@
             if (action === 'increment') {
                 targetInput.value = currentValue + 1;
             } else if (action === 'decrement') {
-                targetInput.value = Math.max(0, currentValue - 1); 
+                targetInput.value = Math.max(0, currentValue - 1); // Não permite valor negativo
             }
+            // Dispara o evento 'input' para que o cálculo seja refeito
             targetInput.dispatchEvent(new Event('input'));
         }
 
+        // Adiciona event listeners para os botões de quantidade
         document.querySelectorAll('.quantity-button').forEach(button => {
             button.addEventListener('click', handleQuantityButtonClick);
         });
         
-        qtdPostsInput.addEventListener('input', calcularTotalPersonalizado);
-        qtdVideosInput.addEventListener('input', calcularTotalPersonalizado);
-        qtdCarrosseisInput.addEventListener('input', calcularTotalPersonalizado);
+        // Adiciona event listeners para os inputs da calculadora
+        if (qtdPostsInput && qtdVideosInput && qtdCarrosseisInput && valorTotalPersonalizadoDisplay) {
+            qtdPostsInput.addEventListener('input', calcularTotalPersonalizado);
+            qtdVideosInput.addEventListener('input', calcularTotalPersonalizado);
+            qtdCarrosseisInput.addEventListener('input', calcularTotalPersonalizado);
+            // Cálculo inicial
+            calcularTotalPersonalizado();
+        }
 
-        calcularTotalPersonalizado();
-
-        // Script para o Modal do Portfólio com Galeria
+        // Lógica do Modal do Portfólio
         const portfolioItems = document.querySelectorAll('.portfolio-item-card');
         const modal = document.getElementById('portfolio-modal');
         const modalCloseButton = document.getElementById('modal-close');
@@ -803,66 +938,83 @@
         const modalPrevButton = document.getElementById('modal-prev');
         const modalNextButton = document.getElementById('modal-next');
 
-        let currentMediaSources = [];
-        let currentMediaIndex = 0;
-        let currentMediaType = ''; 
+        let currentMediaSources = []; // Array para armazenar os srcs das mídias (pode ser mais de um por item, separado por vírgula)
+        let currentMediaIndex = 0;  // Índice da mídia atual dentro de currentMediaSources
+        let currentMediaType = '';  // 'image' ou 'video'
 
+        // Função para exibir a mídia atual no modal
         function displayCurrentMediaInModal() {
-            modalMediaContainer.innerHTML = ''; 
+            modalMediaContainer.innerHTML = ''; // Limpa o container
             const mediaSrc = currentMediaSources[currentMediaIndex];
 
             if (currentMediaType === 'image') {
                 const img = document.createElement('img');
                 img.src = mediaSrc;
                 img.alt = "Imagem do Portfólio " + (currentMediaIndex + 1);
+                img.onerror = function() { // Fallback para imagem
+                    this.onerror=null;
+                    this.src='https://placehold.co/800x600/000000/FFFFFF?text=Imagem+Indispon%C3%ADvel';
+                    this.alt = 'Imagem Indisponível';
+                };
                 modalMediaContainer.appendChild(img);
             } else if (currentMediaType === 'video') {
-                 if (mediaSrc && mediaSrc !== "undefined" && mediaSrc !== "null") {
+                 if (mediaSrc && mediaSrc !== "undefined" && mediaSrc !== "null") { // Verifica se mediaSrc é válido
                     const iframe = document.createElement('iframe');
-                    iframe.src = mediaSrc; 
+                    iframe.src = mediaSrc; // Idealmente, este seria um link de embed (ex: YouTube, Vimeo)
                     iframe.title = 'Vídeo do Portfólio ' + (currentMediaIndex + 1);
                     iframe.frameBorder = "0";
                     iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
                     iframe.allowFullscreen = true;
                     
+                    // Wrapper para manter a proporção do vídeo responsivo
                     const videoWrapper = document.createElement('div');
-                    videoWrapper.className = 'modal-video-container';
+                    videoWrapper.className = 'modal-video-container'; 
                     videoWrapper.appendChild(iframe);
                     modalMediaContainer.appendChild(videoWrapper);
                 } else {
+                    // Exibe mensagem se o link do vídeo não estiver configurado
                     modalMediaContainer.innerHTML = '<p class="text-center text-white bg-black p-4 rounded-md">Link do vídeo não configurado.</p>';
                 }
             }
-            modalPrevButton.disabled = currentMediaIndex === 0;
-            modalNextButton.disabled = currentMediaIndex === currentMediaSources.length - 1;
+
+            // Controla a visibilidade e estado dos botões de navegação
+            if (currentMediaSources.length > 1) { 
+                 modalNavigationButtons.classList.remove('hidden');
+                 modalPrevButton.disabled = currentMediaIndex === 0;
+                 modalNextButton.disabled = currentMediaIndex === currentMediaSources.length - 1;
+            } else {
+                modalNavigationButtons.classList.add('hidden');
+            }
         }
 
 
+        // Adiciona event listeners para cada item do portfólio
         portfolioItems.forEach(item => {
             item.addEventListener('click', () => {
-                currentMediaType = item.dataset.type; 
-                const mediaSrcString = item.dataset.mediaSrc;
+                currentMediaType = item.dataset.type; // 'image' ou 'video'
+                const mediaSrcString = item.dataset.mediaSrc; // Pode ser uma string com múltiplos srcs separados por vírgula
                 
-                modalMediaContainer.innerHTML = ''; 
-                modalNavigationButtons.classList.add('hidden'); 
+                modalMediaContainer.innerHTML = ''; // Limpa antes de adicionar nova mídia
+                modalNavigationButtons.classList.add('hidden'); // Esconde botões de navegação inicialmente
 
+                // Converte a string de srcs em um array
                 currentMediaSources = mediaSrcString.split(',').map(src => src.trim());
-                currentMediaIndex = 0;
+                currentMediaIndex = 0; // Reseta o índice para a primeira mídia
 
+                // Verifica se há mídias válidas para exibir
                 if (currentMediaSources.length > 0 && currentMediaSources[0] && currentMediaSources[0] !== "null" && currentMediaSources[0] !== "undefined") {
-                    displayCurrentMediaInModal(); 
-                    if (currentMediaSources.length > 1) {
-                        modalNavigationButtons.classList.remove('hidden'); 
-                    }
+                    displayCurrentMediaInModal(); // Exibe a primeira mídia
                 } else {
+                     // Mensagem se não houver mídia configurada
                      modalMediaContainer.innerHTML = `<p class="text-center text-white bg-black p-4 rounded-md">Nenhuma ${currentMediaType === 'image' ? 'imagem' : 'mídia'} configurada para esta categoria.</p>`;
                 }
                 
-                modal.style.display = 'flex'; 
-                document.body.style.overflow = 'hidden'; 
+                modal.style.display = 'flex'; // Mostra o modal
+                document.body.style.overflow = 'hidden'; // Impede o scroll da página ao fundo
             });
         });
         
+        // Event listener para o botão "Anterior" do modal
         modalPrevButton.addEventListener('click', () => {
             if (currentMediaIndex > 0) {
                 currentMediaIndex--;
@@ -870,6 +1022,7 @@
             }
         });
 
+        // Event listener para o botão "Próxima" do modal
         modalNextButton.addEventListener('click', () => {
             if (currentMediaIndex < currentMediaSources.length - 1) {
                 currentMediaIndex++;
@@ -877,23 +1030,30 @@
             }
         });
 
+        // Função para fechar o modal
         function closeModal() {
             modal.style.display = 'none';
-            modalMediaContainer.innerHTML = ''; 
-            modalNavigationButtons.classList.add('hidden'); 
+            modalMediaContainer.innerHTML = ''; // Limpa o conteúdo do modal
+            modalNavigationButtons.classList.add('hidden'); // Esconde botões de navegação
+            // Para parar vídeos do YouTube/Vimeo ao fechar o modal
             const iframe = modalMediaContainer.querySelector('iframe');
             if (iframe) {
-                iframe.src = ''; 
+                iframe.src = ''; // Remove o src para parar o vídeo
             }
-            document.body.style.overflow = 'auto'; 
+            document.body.style.overflow = 'auto'; // Restaura o scroll da página
         }
 
+        // Event listener para o botão de fechar do modal
         modalCloseButton.addEventListener('click', closeModal);
+
+        // Event listener para fechar o modal clicando fora do conteúdo
         modal.addEventListener('click', (event) => {
-            if (event.target === modal) { 
+            if (event.target === modal) { // Se o clique foi no overlay do modal
                 closeModal();
             }
         });
+
+        // Event listener para fechar o modal com a tecla Esc
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && modal.style.display === 'flex') {
                 closeModal();

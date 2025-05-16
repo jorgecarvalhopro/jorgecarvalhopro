@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Briefing - Jorge Carvalho</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth; 
+        }
+        /* Estilo para as seções do formulário */
+        .form-section {
+            background-color: #f9fafb; 
+            padding: 1.5rem; 
+            border-radius: 0.75rem; 
+            margin-bottom: 2rem; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+        }
+        /* Estilo para os títulos das seções do formulário */
+        .form-section-title {
+            font-size: 1.25rem; 
+            font-weight: 600; 
+            color: #111827; 
+            margin-bottom: 1rem; 
+            padding-bottom: 0.5rem; 
+            border-bottom: 1px solid #e5e7eb; 
+        }
+        /* Estilo padrão para labels */
+        label {
+            display: block;
+            margin-bottom: 0.5rem; 
+            font-weight: 500; 
+            color: #374151; 
+        }
+        /* Estilo padrão para inputs, selects e textareas */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem 1rem; 
+            border: 1px solid #d1d5db; 
+            border-radius: 0.375rem; 
+            box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        /* Estilo de foco para inputs, selects e textareas */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="url"]:focus,
+        input[type="date"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #000000; 
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1); 
+            outline: none;
+        }
+        /* Altura mínima para textareas */
+        textarea {
+            min-height: 120px; 
+        }
+        /* Estilo para labels de checkbox e radio */
+        .checkbox-group label,
+        .radio-group label {
+            font-weight: normal; 
+            margin-bottom: 0;
+            margin-left: 0.5rem; 
+        }
+        /* Estilo para containers de checkbox e radio */
+        .checkbox-group div,
+        .radio-group div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        /* Estilo para inputs checkbox e radio */
+        input[type="checkbox"],
+        input[type="radio"] {
+            width: 1rem; 
+            height: 1rem; 
+            accent-color: #000000; 
+        }
+        /* Estilo para o botão de submit */
+        .submit-button {
+            background-color: #000000; 
+            color: white;
+            font-weight: 600; 
+            padding: 0.75rem 2rem; 
+            border-radius: 0.5rem; 
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #374151; 
+        }
+        /* Estilo para o botão de voltar ao topo */
+        #scrollTopBtn { 
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+            z-index: 1000;
+        }
+        #scrollTopBtn:hover {
+            background-color: #374151;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-black">Jorge Carvalho</a>
+                <div class="hidden md:flex space-x-4">
+                    <a href="index.html#home" class="text-gray-700 hover:text-black transition duration-300">Início</a>
+                    <a href="index.html#servicos" class="text-gray-700 hover:text-black transition duration-300">Serviços</a>
+                    <a href="index.html#portfolio" class="text-gray-700 hover:text-black transition duration-300">Portfólio</a>
+                    <a href="index.html#processo" class="text-gray-700 hover:text-black transition duration-300">Nosso Processo</a>
+                    <a href="index.html#pacotes" class="text-gray-700 hover:text-black transition duration-300">Pacotes</a>
+                    <a href="index.html#contato" class="text-gray-700 hover:text-black transition duration-300">Contato</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button-briefing" class="text-gray-700 hover:text-black focus:outline-none">
+                        <i class="fas fa-bars fa-lg"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu-briefing" class="hidden md:hidden mt-3 space-y-2">
+                <a href="index.html#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Início</a>
+                <a href="index.html#servicos" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Serviços</a>
+                <a href="index.html#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Portfólio</a>
+                <a href="index.html#processo" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Nosso Processo</a>
+                <a href="index.html#pacotes" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Pacotes</a>
+                <a href="index.html#contato" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 transition duration-300">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 md:py-16">
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">Formulário de Briefing</h1>
+        <p class="text-center text-gray-700 max-w-2xl mx-auto mb-10">Por favor, preencha o formulário abaixo com o máximo de detalhes possível. Isso me ajudará a entender suas necessidades e a criar uma proposta mais precisa para o seu projeto.</p>
+
+        <form id="briefingForm" action="mailto:jorgecarvalho.visual@gmail.com" method="POST" enctype="text/plain" class="max-w-3xl mx-auto">
+
+            <div class="form-section">
+                <h2 class="form-section-title">1. Suas Informações de Contato</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="nomeCompleto">Nome Completo:</label>
+                        <input type="text" id="nomeCompleto" name="Nome Completo" required>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="E-mail" required>
+                    </div>
+                    <div>
+                        <label for="telefone">Telefone/WhatsApp (com DDD):</label>
+                        <input type="tel" id="telefone" name="Telefone" placeholder="(XX) XXXXX-XXXX" required>
+                    </div>
+                    <div>
+                        <label for="empresa">Nome da Empresa/Negócio (se aplicável):</label>
+                        <input type="text" id="empresa" name="Empresa">
+                    </div>
+                </div>
+                 <div class="mt-6">
+                    <label for="instagram">Seu Instagram (ou da marca):</label>
+                    <input type="url" id="instagram" name="Instagram" placeholder="https://instagram.com/seu_usuario">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2 class="form-section-title">2. Sobre o Projeto</h2>
+                <div>
+                    <label for="tipoProjeto">Qual tipo de serviço você precisa?</label>
+                    <select id="tipoProjeto" name="Tipo de Projeto" required>
+                        <option value="" disabled selected>Selecione uma opção</option>
+                        <option value="design_posts">Design de Posts para Redes Sociais</option>
+                        <option value="edicao_videos">Edição de Vídeos Curtos (Reels, TikTok, Shorts)</option>
+                        <option value="design_e_video">Pacote: Design de Posts + Edição de Vídeos</option>
+                        <option value="pacote_basico">Pacote Básico (Pré-definido)</option>
+                        <option value="pacote_intermediario">Pacote Intermediário (Pré-definido)</option>
+                        <option value="pacote_avancado">Pacote Avançado (Pré-definido)</option>
+                        <option value="artes_avulsas">Artes Avulsas</option>
+                        <option value="outro">Outro (descreva abaixo)</option>
+                    </select>
+                </div>
+                <div class="mt-4" id="outroTipoProjetoContainer" style="display: none;">
+                    <label for="outroTipoProjeto">Descreva o tipo de serviço que precisa:</label>
+                    <textarea id="outroTipoProjeto" name="Outro Tipo de Projeto" rows="3"></textarea>
+                </div>
+
+                <div class="mt-6">
+                    <label for="objetivoProjeto">Qual o principal objetivo do projeto? (Ex: aumentar vendas, gerar leads, fortalecer marca, etc.)</label>
+                    <textarea id="objetivoProjeto" name="Objetivo do Projeto" required rows="3"></textarea>
+                </div>
+                <div class="mt-6">
+                    <label for="publicoAlvo">Quem é o seu público-alvo principal?</label>
+                    <textarea id="publicoAlvo" name="Publico Alvo" required rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="form-section" id="detalhesDesignSection" style="display: none;">
+                <h2 class="form-section-title">3. Detalhes para Design de Posts</h2>
+                <div>
+                    <label for="identidadeVisual">Você já possui identidade visual (logo, paleta de cores, fontes)?</label>
+                    <select id="identidadeVisual" name="Identidade Visual">
+                        <option value="sim_tenho_e_forneco">Sim, já tenho e posso fornecer</option>
+                        <option value="sim_parcial">Sim, mas preciso de ajuda para organizar/definir alguns elementos</option>
+                        <option value="nao_preciso_criar">Não, preciso de ajuda para criar</option>
+                    </select>
+                </div>
+                <div class="mt-4">
+                    <label for="arquivosIdentidade">Se sim, onde posso acessar os arquivos (link do Drive, WeTransfer, etc.) ou você pode anexar por e-mail?</label>
+                    <input type="text" id="arquivosIdentidade" name="Arquivos Identidade Visual" placeholder="Link para os arquivos ou 'enviarei por e-mail'">
+                </div>
+                <div class="mt-6">
+                    <label for="estiloDesign">Qual estilo de design você prefere? (Ex: minimalista, moderno, divertido, elegante, etc.)</label>
+                    <input type="text" id="estiloDesign" name="Estilo de Design">
+                </div>
+                <div class="mt-4">
+                    <label for="referenciasDesign">Tem alguma referência de design que você gosta? (Links de perfis, posts, etc.)</label>
+                    <textarea id="referenciasDesign" name="Referencias de Design" rows="3" placeholder="Cole os links aqui"></textarea>
+                </div>
+                 <div class="mt-6">
+                    <label for="quantidadePosts">Quantidade de posts estáticos desejada (se não for um pacote fechado):</label>
+                    <input type="number" id="quantidadePosts" name="Quantidade de Posts Estaticos" min="0" value="0">
+                </div>
+                <div class="mt-4">
+                    <label for="quantidadeCarrosseis">Quantidade de carrosséis desejada (se não for um pacote fechado):</label>
+                    <input type="number" id="quantidadeCarrosseis" name="Quantidade de Carrosseis" min="0" value="0">
+                </div>
+                <div class="mt-6">
+                    <label>Precisa da criação do conteúdo (texto/legendas) para os posts?</label>
+                    <div class="radio-group">
+                        <div>
+                            <input type="radio" id="conteudoSim" name="Precisa de Conteudo" value="sim" checked>
+                            <label for="conteudoSim">Sim (já incluso como bônus)</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="conteudoNao" name="Precisa de Conteudo" value="nao">
+                            <label for="conteudoNao">Não, eu fornecerei os textos</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section" id="detalhesVideoSection" style="display: none;">
+                <h2 class="form-section-title">4. Detalhes para Edição de Vídeos</h2>
+                <div>
+                    <label for="videosBrutos">Você fornecerá os vídeos brutos?</label>
+                    <select id="videosBrutos" name="Fornecimento Videos Brutos">
+                        <option value="sim_link">Sim, enviarei um link para download</option>
+                        <option value="sim_wetransfer">Sim, enviarei por WeTransfer/similar</option>
+                        <option value="nao_preciso_captacao">Não, preciso de ajuda com a captação (serviço adicional)</option>
+                    </select>
+                </div>
+                <div class="mt-4">
+                    <label for="linkVideosBrutos">Se sim, link para os vídeos brutos (Google Drive, Dropbox, etc.):</label>
+                    <input type="url" id="linkVideosBrutos" name="Link Videos Brutos" placeholder="Cole o link aqui">
+                </div>
+                <div class="mt-6">
+                    <label for="duracaoVideo">Qual a duração aproximada desejada para os vídeos finais?</label>
+                    <input type="text" id="duracaoVideo" name="Duracao Video Final" placeholder="Ex: até 1 minuto, 30 segundos, etc.">
+                </div>
+                <div class="mt-4">
+                    <label for="estiloVideo">Qual estilo de edição você prefere? (Ex: dinâmico, informativo, com legendas animadas, etc.)</label>
+                    <input type="text" id="estiloVideo" name="Estilo de Edicao Video">
+                </div>
+                <div class="mt-4">
+                    <label for="referenciasVideo">Tem alguma referência de vídeo que você gosta? (Links de Reels, TikToks, etc.)</label>
+                    <textarea id="referenciasVideo" name="Referencias de Video" rows="3" placeholder="Cole os links aqui"></textarea>
+                </div>
+                 <div class="mt-6">
+                    <label for="quantidadeVideos">Quantidade de vídeos curtos desejada (se não for um pacote fechado):</label>
+                    <input type="number" id="quantidadeVideos" name="Quantidade de Videos Curtos" min="0" value="0">
+                </div>
+                <div class="mt-6">
+                    <label>Elementos adicionais para os vídeos:</label>
+                    <div class="checkbox-group">
+                        <div><input type="checkbox" id="legendaVideo" name="Elementos Adicionais Video" value="legendas"><label for="legendaVideo">Legendas</label></div>
+                        <div><input type="checkbox" id="trilhaVideo" name="Elementos Adicionais Video" value="trilha_sonora"><label for="trilhaVideo">Trilha sonora (sugestão ou livre de direitos)</label></div>
+                        <div><input type="checkbox" id="animacaoVideo" name="Elementos Adicionais Video" value="animacoes_simples"><label for="animacaoVideo">Animações simples (textos, transições)</label></div>
+                        <div><input type="checkbox" id="logoVideo" name="Elementos Adicionais Video" value="insercao_logo"><label for="logoVideo">Inserção de logo/marca d'água</label></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2 class="form-section-title">5. Informações Adicionais e Prazos</h2>
+                <div>
+                    <label for="prazoIdeal">Qual o seu prazo ideal para a primeira entrega ou para o início do projeto?</label>
+                    <input type="text" id="prazoIdeal" name="Prazo Ideal" placeholder="Ex: Próxima semana, até dia XX/XX, o mais rápido possível">
+                </div>
+                <div class="mt-6">
+                    <label for="orcamento">Você tem uma faixa de orçamento em mente para este projeto? (Opcional)</label>
+                    <input type="text" id="orcamento" name="Faixa de Orcamento" placeholder="Ex: Entre R$X e R$Y">
+                </div>
+                <div class="mt-6">
+                    <label for="infoAdicional">Algo mais que eu deveria saber sobre o projeto ou suas expectativas?</label>
+                    <textarea id="infoAdicional" name="Informacoes Adicionais" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <button type="submit" class="submit-button">
+                    <i class="fas fa-paper-plane mr-2"></i> Enviar Briefing
+                </button>
+            </div>
+            <p class="text-center text-sm text-gray-600 mt-4">Após o envio, entrarei em contato em até 24 horas úteis com os próximos passos ou uma proposta. Obrigado!</p>
+        </form>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-10 text-center mt-16"> 
+        <p>© <span id="currentYearBriefing"></span> Jorge Carvalho. Todos os direitos reservados.</p>
+        <p class="text-sm text-gray-400">Retornar para <a href="index.html" class="font-semibold hover:text-white">Página Inicial</a></p>
+    </footer>
+
+    <button id="scrollTopBtn" title="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Atualiza o ano no rodapé
+        document.getElementById('currentYearBriefing').textContent = new Date().getFullYear();
+
+        // Botão de voltar ao topo 
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        if (scrollTopBtn) {
+            window.onscroll = function() {
+                if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                    scrollTopBtn.style.display = "block";
+                    scrollTopBtn.style.opacity = "1";
+                    scrollTopBtn.style.visibility = "visible";
+                } else {
+                    scrollTopBtn.style.opacity = "0";
+                    scrollTopBtn.style.visibility = "hidden";
+                    // Garante que o display:none seja aplicado após a transição de opacidade
+                    setTimeout(() => {
+                        if (scrollTopBtn.style.opacity === "0") { 
+                             scrollTopBtn.style.display = "none";
+                        }
+                    }, 500); // Tempo da transição de opacidade
+                }
+            };
+            scrollTopBtn.addEventListener('click', function() { window.scrollTo({top: 0, behavior: 'smooth'}); });
+        }
+        
+        // Menu Mobile Toggle para a página de briefing
+        const menuButtonBriefing = document.getElementById('mobile-menu-button-briefing');
+        const mobileMenuBriefing = document.getElementById('mobile-menu-briefing');
+        if (menuButtonBriefing && mobileMenuBriefing) {
+            const menuButtonIconBriefing = menuButtonBriefing.querySelector('i');
+            menuButtonBriefing.addEventListener('click', () => {
+                mobileMenuBriefing.classList.toggle('hidden');
+                // Alterna o ícone do botão do menu
+                if (mobileMenuBriefing.classList.contains('hidden')) {
+                    menuButtonIconBriefing.classList.remove('fa-times');
+                    menuButtonIconBriefing.classList.add('fa-bars');
+                } else {
+                    menuButtonIconBriefing.classList.remove('fa-bars');
+                    menuButtonIconBriefing.classList.add('fa-times');
+                }
+            });
+        }
+
+        // Lógica para mostrar/ocultar seções do formulário com base no tipo de projeto
+        const tipoProjetoSelect = document.getElementById('tipoProjeto');
+        const detalhesDesignSection = document.getElementById('detalhesDesignSection');
+        const detalhesVideoSection = document.getElementById('detalhesVideoSection');
+        const outroTipoProjetoContainer = document.getElementById('outroTipoProjetoContainer');
+
+        if (tipoProjetoSelect) {
+            tipoProjetoSelect.addEventListener('change', function() {
+                const selectedValue = this.value;
+                
+                // Oculta todas as seções condicionais por padrão
+                if(detalhesDesignSection) detalhesDesignSection.style.display = 'none';
+                if(detalhesVideoSection) detalhesVideoSection.style.display = 'none';
+                if(outroTipoProjetoContainer) outroTipoProjetoContainer.style.display = 'none';
+
+                // Mostra seções com base na seleção
+                if (selectedValue === 'design_posts' || selectedValue === 'design_e_video' || selectedValue === 'artes_avulsas' || selectedValue === 'pacote_basico' || selectedValue === 'pacote_intermediario' || selectedValue === 'pacote_avancado') {
+                    if(detalhesDesignSection) detalhesDesignSection.style.display = 'block';
+                }
+                if (selectedValue === 'edicao_videos' || selectedValue === 'design_e_video' || selectedValue === 'pacote_basico' || selectedValue === 'pacote_intermediario' || selectedValue === 'pacote_avancado') {
+                    // Para pacotes, também pode ser relevante mostrar a seção de vídeo se o pacote incluir
+                    if(detalhesVideoSection) detalhesVideoSection.style.display = 'block';
+                }
+                if (selectedValue === 'outro') {
+                    if(outroTipoProjetoContainer) outroTipoProjetoContainer.style.display = 'block';
+                }
+            });
+        }
+
+        // Lógica para preencher campos do formulário com base nos parâmetros da URL (ex: ?pacote=basico)
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const pacoteSelecionado = params.get('pacote');
+            const tipoAvulso = params.get('tipo');
+
+            if (tipoProjetoSelect) { // Garante que o select existe
+                if (pacoteSelecionado) {
+                    if (pacoteSelecionado === 'basico') {
+                        tipoProjetoSelect.value = 'pacote_basico';
+                    } else if (pacoteSelecionado === 'intermediario') {
+                        tipoProjetoSelect.value = 'pacote_intermediario';
+                    } else if (pacoteSelecionado === 'avancado') {
+                        tipoProjetoSelect.value = 'pacote_avancado';
+                    }
+                    // Dispara o evento change para atualizar a visibilidade das seções
+                    tipoProjetoSelect.dispatchEvent(new Event('change'));
+                } else if (tipoAvulso === 'avulso') {
+                     tipoProjetoSelect.value = 'artes_avulsas';
+                     tipoProjetoSelect.dispatchEvent(new Event('change'));
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
