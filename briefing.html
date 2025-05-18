@@ -14,27 +14,27 @@
         }
         /* Estilo para as seções do formulário */
         .form-section {
-            background-color: #f9fafb; 
-            padding: 1.5rem; 
-            border-radius: 0.75rem; 
-            margin-bottom: 2rem; 
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+            background-color: #f9fafb; /* bg-gray-50 */
+            padding: 1.5rem; /* p-6 */
+            border-radius: 0.75rem; /* rounded-xl */
+            margin-bottom: 2rem; /* mb-8 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
         }
         /* Estilo para os títulos das seções do formulário */
         .form-section-title {
-            font-size: 1.25rem; 
-            font-weight: 600; 
-            color: #111827; 
-            margin-bottom: 1rem; 
-            padding-bottom: 0.5rem; 
-            border-bottom: 1px solid #e5e7eb; 
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            color: #111827; /* text-gray-900 */
+            margin-bottom: 1rem; /* mb-4 */
+            padding-bottom: 0.5rem; /* pb-2 */
+            border-bottom: 1px solid #e5e7eb; /* border-b border-gray-200 */
         }
         /* Estilo padrão para labels */
         label {
             display: block;
-            margin-bottom: 0.5rem; 
-            font-weight: 500; 
-            color: #374151; 
+            margin-bottom: 0.5rem; /* mb-2 */
+            font-weight: 500; /* font-medium */
+            color: #374151; /* text-gray-700 */
         }
         /* Estilo padrão para inputs, selects e textareas */
         input[type="text"],
@@ -46,9 +46,9 @@
         select,
         textarea {
             width: 100%;
-            padding: 0.75rem 1rem; 
-            border: 1px solid #d1d5db; 
-            border-radius: 0.375rem; 
+            padding: 0.75rem 1rem; /* py-3 px-4 */
+            border: 1px solid #d1d5db; /* border-gray-300 */
+            border-radius: 0.375rem; /* rounded-md */
             box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             transition: border-color 0.2s, box-shadow 0.2s;
         }
@@ -61,8 +61,8 @@
         input[type="number"]:focus,
         select:focus,
         textarea:focus {
-            border-color: #000000; 
-            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1); 
+            border-color: #000000; /* focus:border-black */
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1); /* focus:ring-black focus:ring-opacity-50 */
             outline: none;
         }
         /* Altura mínima para textareas */
@@ -72,37 +72,37 @@
         /* Estilo para labels de checkbox e radio */
         .checkbox-group label,
         .radio-group label {
-            font-weight: normal; 
+            font-weight: normal; /* Tailwind default for labels is medium, so this makes it normal */
             margin-bottom: 0;
-            margin-left: 0.5rem; 
+            margin-left: 0.5rem; /* ml-2 */
         }
         /* Estilo para containers de checkbox e radio */
         .checkbox-group div,
         .radio-group div {
             display: flex;
             align-items: center;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.5rem; /* mb-2 */
         }
         /* Estilo para inputs checkbox e radio */
         input[type="checkbox"],
         input[type="radio"] {
-            width: 1rem; 
-            height: 1rem; 
-            accent-color: #000000; 
+            width: 1rem; /* w-4 */
+            height: 1rem; /* h-4 */
+            accent-color: #000000; /* Tailwind uses accent-color for this */
         }
         /* Estilo para o botão de submit */
         .submit-button {
-            background-color: #000000; 
+            background-color: #000000; /* bg-black */
             color: white;
-            font-weight: 600; 
-            padding: 0.75rem 2rem; 
-            border-radius: 0.5rem; 
+            font-weight: 600; /* font-semibold */
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 0.5rem; /* rounded-lg */
             transition: background-color 0.3s;
             border: none;
             cursor: pointer;
         }
         .submit-button:hover {
-            background-color: #374151; 
+            background-color: #374151; /* hover:bg-gray-800 */
         }
         /* Estilo para o botão de voltar ao topo */
         #scrollTopBtn { 
@@ -186,7 +186,15 @@
                 </div>
                  <div class="mt-6">
                     <label for="instagram">Seu Instagram (ou da marca):</label>
-                    <input type="url" id="instagram" name="Instagram" placeholder="https://instagram.com/seu_usuario">
+                    <input 
+                        type="text" 
+                        id="instagram" 
+                        name="Instagram" 
+                        placeholder="@seu_usuario ou https://instagram.com/seu_usuario"
+                        pattern="^([@][\w\.\-]+)|(https?://(www\.)?instagram\.com/[\w\.\-]+(/)?)$" 
+                        title="Insira seu @usuario ou a URL completa do Instagram."
+                    >
+                    <p class="text-xs text-gray-500 mt-1">Você pode inserir apenas o @usuario (ex: @jorgecarvalho.pro) ou a URL completa.</p>
                 </div>
             </div>
 
@@ -412,6 +420,9 @@
                     if(outroTipoProjetoContainer) outroTipoProjetoContainer.style.display = 'block';
                 }
             });
+            // Dispara o evento change inicialmente para configurar a visibilidade correta ao carregar a página
+            // especialmente se houver valores pré-selecionados por URL
+             tipoProjetoSelect.dispatchEvent(new Event('change'));
         }
 
         // Lógica para preencher campos do formulário com base nos parâmetros da URL (ex: ?pacote=basico)

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terapeuta Integrativa - Equilíbrio e Bem-Estar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA; /* Cor de fundo suave */
+            color: #343A40; /* Cor de texto principal */
+        }
+        /* Estilo para o link ativo na navegação desktop */
+        .nav-link-desktop.active {
+            color: #10B981; /* Verde esmeralda para link ativo */
+            font-weight: 600;
+        }
+        .section-title {
+            color: #059669; /* Verde esmeralda mais escuro para títulos de seção */
+        }
+        .btn-primary {
+            background-color: #10B981; /* Verde esmeralda */
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #059669; /* Verde esmeralda mais escuro no hover */
+        }
+        /* Custom scrollbar for a more subtle look - Optional */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #059669;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #047857;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#inicio" class="text-2xl font-bold text-emerald-700">Nome da Terapeuta</a>
+            
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-slate-700 hover:text-emerald-600 focus:outline-none">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <nav class="hidden md:flex md:items-center">
+                <ul class="flex flex-col md:flex-row md:space-x-6">
+                    <li><a href="#inicio" class="nav-link-desktop text-slate-700 hover:text-emerald-600 px-3 py-2 rounded-md">Início</a></li>
+                    <li><a href="#sobre" class="nav-link-desktop text-slate-700 hover:text-emerald-600 px-3 py-2 rounded-md">Sobre</a></li>
+                    <li><a href="#servicos" class="nav-link-desktop text-slate-700 hover:text-emerald-600 px-3 py-2 rounded-md">Serviços</a></li>
+                    <li><a href="#contato" class="nav-link-desktop text-slate-700 hover:text-emerald-600 px-3 py-2 rounded-md">Contato</a></li>
+                    <li><a href="#depoimentos" class="nav-link-desktop text-slate-700 hover:text-emerald-600 px-3 py-2 rounded-md">Depoimentos</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200">
+            <ul class="flex flex-col items-center py-2">
+                <li><a href="#inicio" class="nav-link-mobile block w-full text-center py-3 px-4 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200">Início</a></li>
+                <li><a href="#sobre" class="nav-link-mobile block w-full text-center py-3 px-4 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200">Sobre</a></li>
+                <li><a href="#servicos" class="nav-link-mobile block w-full text-center py-3 px-4 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200">Serviços</a></li>
+                <li><a href="#contato" class="nav-link-mobile block w-full text-center py-3 px-4 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200">Contato</a></li>
+                <li><a href="#depoimentos" class="nav-link-mobile block w-full text-center py-3 px-4 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200">Depoimentos</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="py-16 md:py-24 bg-gradient-to-br from-emerald-50 to-teal-50 min-h-screen flex items-center">
+            <div class="container mx-auto px-6 text-center">
+                <img src="https://placehold.co/150x150/A0D2DB/333333?text=Foto+Terapeuta" alt="Foto da Terapeuta" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full shadow-lg mb-6 border-4 border-white">
+                <h1 class="text-3xl md:text-5xl font-bold text-emerald-700 mb-4">Bem-vindo(a)!</h1>
+                <p class="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
+                    “Promovendo equilíbrio e bem-estar para corpo, mente e espírito.”
+                </p>
+                <a href="#contato" class="btn-primary font-semibold px-8 py-3 rounded-lg shadow-md text-lg">
+                    Agende sua Sessão
+                </a>
+            </div>
+        </section>
+
+        <section id="sobre" class="py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12">Sobre a Terapeuta</h2>
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <img src="https://placehold.co/600x400/B2D8B4/333333?text=Terapeuta+em+Atendimento" alt="Terapeuta em atendimento" class="rounded-lg shadow-xl w-full">
+                    </div>
+                    <div class="text-slate-700 space-y-6">
+                        <h3 class="text-2xl font-semibold text-emerald-700">Minha Jornada e Abordagem</h3>
+                        <p class="leading-relaxed">
+                            Olá! Sou [Nome da Terapeuta], e minha paixão é guiar pessoas em suas jornadas de autoconhecimento e cura. Com formação em [suas formações] e uma profunda crença no poder da abordagem integrativa, busco olhar para cada indivíduo em sua totalidade – corpo, mente e espírito.
+                        </p>
+                        <h3 class="text-2xl font-semibold text-emerald-700">Missão e Valores</h3>
+                        <p class="leading-relaxed">
+                            Minha missão é oferecer um espaço seguro e acolhedor onde você possa explorar suas questões, liberar bloqueios e despertar seu potencial inato para uma vida mais plena e equilibrada. Meus valores fundamentais são o respeito, a empatia, a confidencialidade e a busca contínua pelo bem-estar integral de cada cliente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos" class="py-16 md:py-20 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12">Terapias e Serviços</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Escuta Terapêutica</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Acolhimento e suporte emocional para suas questões, promovendo clareza e autoconhecimento.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">PNL (Programação Neurolinguística)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Reprograme sua mente para superar limitações, alcançar metas e transformar comportamentos.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Constelação Familiar</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Revele dinâmicas ocultas em seu sistema familiar, buscando soluções e cura para padrões repetitivos.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Barras de Access</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Libere crenças limitantes e pontos de vista fixos com toques suaves na cabeça, promovendo relaxamento e novas possibilidades.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Reiki</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Receba energia vital universal para equilibrar seus centros energéticos, promovendo bem-estar físico, mental e emocional.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Aromaterapia</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Utilize o poder dos óleos essenciais para harmonizar suas emoções, aliviar o estresse e promover a saúde.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Auriculoterapia</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Estimule pontos na orelha para tratar dores, ansiedade e outros desequilíbrios, restaurando o bem-estar.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Facelift Energético</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Rejuvenesça a aparência do rosto e corpo de forma natural, liberando energias estagnadas e promovendo vitalidade.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Técnicas de Meditação</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Acalme a mente, reduza o estresse e cultive a presença plena através de práticas guiadas e personalizadas.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Ventosaterapia</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Alivie dores musculares, melhore a circulação e promova o relaxamento profundo com a aplicação de ventosas.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Vaporização Uterina</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Cuidado ancestral feminino para limpeza energética, equilíbrio hormonal e conexão com o sagrado feminino.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <h3 class="text-xl font-semibold text-emerald-700 mb-2">Cone Hindu</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Limpeza energética e física dos ouvidos, nariz e garganta, aliviando tensões e promovendo clareza mental.</p>
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+        <section id="contato" class="py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12">Agendamento e Contato</h2>
+                <div class="grid md:grid-cols-2 gap-10 items-start">
+                    <form action="#" method="POST" class="space-y-6 bg-slate-50 p-8 rounded-lg shadow-lg">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-700">Nome Completo</label>
+                            <input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-700">E-mail</label>
+                            <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-slate-700">Telefone / WhatsApp</label>
+                            <input type="tel" name="phone" id="phone" class="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-slate-700">Assunto</label>
+                            <input type="text" name="subject" id="subject" required class="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-700">Mensagem</label>
+                            <textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full btn-primary font-semibold py-3 px-4 rounded-md shadow-sm">
+                                Enviar Mensagem
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="space-y-6 text-slate-700 pt-8 md:pt-0">
+                        <h3 class="text-2xl font-semibold text-emerald-700">Entre em Contato Diretamente</h3>
+                        <p class="leading-relaxed">
+                            Sinta-se à vontade para me contatar por telefone, WhatsApp ou e-mail. Terei prazer em responder suas dúvidas e agendar sua sessão.
+                        </p>
+                        <div class="space-y-3">
+                            <p><strong>Telefone:</strong> <a href="tel:+5500000000000" class="hover:text-emerald-600">(XX) XXXXX-XXXX</a></p>
+                            <p><strong>WhatsApp:</strong> <a href="https://wa.me/5500000000000" target="_blank" class="hover:text-emerald-600">(XX) XXXXX-XXXX</a></p>
+                            <p><strong>E-mail:</strong> <a href="mailto:seuemail@exemplo.com" class="hover:text-emerald-600">seuemail@exemplo.com</a></p>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-emerald-700 mb-2">Endereço do Consultório (se houver)</h4>
+                            <p>Rua Exemplo, 123 - Bairro Modelo</p>
+                            <p>Cidade - UF, CEP XXXXX-XXX</p>
+                            <div class="mt-4">
+                                <img src="https://placehold.co/600x300/E0E0E0/777777?text=Mapa+Localiza%C3%A7%C3%A3o" alt="Mapa da localização do consultório" class="rounded-lg shadow-md w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="depoimentos" class="py-16 md:py-20 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12">O que Dizem os Clientes</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <p class="text-slate-600 italic mb-4">"Uma experiência transformadora! Encontrei acolhimento e ferramentas que realmente fizeram a diferença na minha vida. Recomendo muito!"</p>
+                        <p class="text-right font-semibold text-emerald-700">- Cliente Satisfeito(a)</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <p class="text-slate-600 italic mb-4">"Profissional incrível, atenciosa e com uma sensibilidade única. As sessões me trouxeram muita clareza e paz interior."</p>
+                        <p class="text-right font-semibold text-emerald-700">- Cliente Feliz</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <p class="text-slate-600 italic mb-4">"Recomendo de olhos fechados! A [Nome da Terapeuta] é uma luz no caminho de quem busca equilíbrio e autoconhecimento."</p>
+                        <p class="text-right font-semibold text-emerald-700">- Cliente Grato(a)</p>
+                    </div>
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-300 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-6">
+                <p class="font-semibold text-lg">Nome da Terapeuta</p>
+                <p><a href="tel:+5500000000000" class="hover:text-emerald-400">(XX) XXXXX-XXXX</a></p>
+                <p><a href="mailto:seuemail@exemplo.com" class="hover:text-emerald-400">seuemail@exemplo.com</a></p>
+                <p>Rua Exemplo, 123 - Cidade</p>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="hover:text-emerald-400">Facebook</a>
+                <a href="#" class="hover:text-emerald-400">Instagram</a>
+                <a href="#" class="hover:text-emerald-400">LinkedIn</a>
+            </div>
+            <div class="text-sm">
+                <p>&copy; <span id="currentYear"></span> Nome da Terapeuta. Todos os direitos reservados.</p>
+                <a href="#" class="hover:text-emerald-400 underline">Política de Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para navegação suave (geral)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Atualizar ano no rodapé
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // --- Script para Menu Mobile ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const mobileNavLinks = document.querySelectorAll('#mobile-menu .nav-link-mobile');
+
+        if (mobileMenuButton && mobileMenu && menuIcon && closeIcon) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                menuIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden'); // Esconde o menu ao clicar em um link
+                    menuIcon.classList.remove('hidden'); // Garante que o ícone de menu seja mostrado
+                    closeIcon.classList.add('hidden');   // Garante que o ícone de fechar seja escondido
+                    // A rolagem suave já é tratada pelo script geral de navegação
+                });
+            });
+        }
+
+        // --- Script para destacar link ativo na navegação DESKTOP ao rolar ---
+        const sections = document.querySelectorAll('section[id]');
+        // Seleciona apenas os links da navegação desktop
+        const navLinksDesktop = document.querySelectorAll('header nav ul li a.nav-link-desktop'); 
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                // Ajuste para ativar o link um pouco antes de chegar ao topo da seção
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinksDesktop.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+             // Caso especial para o topo da página (seção Início) para desktop
+            if (pageYOffset < sections[0].offsetTop - (sections[0].clientHeight / 3) ) { // Ajuste para corresponder à lógica de ativação
+                 navLinksDesktop.forEach(link => link.classList.remove('active'));
+                 const homeLinkDesktop = document.querySelector('header nav ul li a.nav-link-desktop[href="#inicio"]');
+                 if (homeLinkDesktop) {
+                    homeLinkDesktop.classList.add('active');
+                 }
+            }
+        });
+
+        // Define o link "Início" como ativo ao carregar a página para desktop
+        document.addEventListener('DOMContentLoaded', () => {
+            const homeLinkDesktop = document.querySelector('header nav ul li a.nav-link-desktop[href="#inicio"]');
+            if (homeLinkDesktop && window.pageYOffset < sections[0].offsetTop - (sections[0].clientHeight / 3)) {
+                 homeLinkDesktop.classList.add('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
