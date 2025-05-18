@@ -28,6 +28,33 @@
         .btn-primary:hover {
             background-color: #059669; /* Verde esmeralda mais escuro no hover */
         }
+        /* Estilos para o FAQ (acordeão) */
+        details > summary {
+            list-style: none; /* Remove o marcador padrão */
+            cursor: pointer;
+            padding: 1rem;
+            background-color: #E6FFFA; /* Fundo suave para a pergunta */
+            border-radius: 0.5rem;
+            font-weight: 600;
+            color: #065F46; /* Verde escuro para o texto da pergunta */
+            transition: background-color 0.3s ease;
+        }
+        details > summary::-webkit-details-marker {
+            display: none; /* Remove o marcador no Chrome/Safari */
+        }
+        details > summary:hover {
+            background-color: #D1FAE5; /* Cor mais clara no hover */
+        }
+        details[open] > summary {
+            background-color: #A7F3D0; /* Cor quando aberto */
+        }
+        details > div {
+            padding: 1rem;
+            border: 1px solid #A7F3D0;
+            border-top: none;
+            border-radius: 0 0 0.5rem 0.5rem;
+            background-color: #F0FDFA;
+        }
         /* Custom scrollbar for a more subtle look - Optional */
         ::-webkit-scrollbar {
             width: 8px;
@@ -64,6 +91,7 @@
                     <li><a href="#servicos" class="nav-link-desktop text-slate-700 hover:text-emerald-600 px-3 py-2 rounded-md">Serviços</a></li>
                     <li><a href="#contato" class="nav-link-desktop text-slate-700 hover:text-emerald-600 px-3 py-2 rounded-md">Contato</a></li>
                     <li><a href="#depoimentos" class="nav-link-desktop text-slate-700 hover:text-emerald-600 px-3 py-2 rounded-md">Depoimentos</a></li>
+                    <li><a href="#faq" class="nav-link-desktop text-slate-700 hover:text-emerald-600 px-3 py-2 rounded-md">FAQ</a></li>
                 </ul>
             </nav>
         </div>
@@ -75,6 +103,7 @@
                 <li><a href="#servicos" class="nav-link-mobile block w-full text-center py-3 px-4 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200">Serviços</a></li>
                 <li><a href="#contato" class="nav-link-mobile block w-full text-center py-3 px-4 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200">Contato</a></li>
                 <li><a href="#depoimentos" class="nav-link-mobile block w-full text-center py-3 px-4 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200">Depoimentos</a></li>
+                <li><a href="#faq" class="nav-link-mobile block w-full text-center py-3 px-4 text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors duration-200">FAQ</a></li>
             </ul>
         </div>
     </header>
@@ -166,7 +195,7 @@
                         <h3 class="text-xl font-semibold text-emerald-700 mb-2">Cone Hindu</h3>
                         <p class="text-slate-600 text-sm leading-relaxed">Limpeza energética e física dos ouvidos, nariz e garganta, aliviando tensões e promovendo clareza mental.</p>
                     </div>
-                    </div>
+                </div>
             </div>
         </section>
 
@@ -201,7 +230,6 @@
                             </button>
                         </div>
                     </form>
-
                     <div class="space-y-6 text-slate-700 pt-8 md:pt-0">
                         <h3 class="text-2xl font-semibold text-emerald-700">Entre em Contato Diretamente</h3>
                         <p class="leading-relaxed">
@@ -241,9 +269,143 @@
                         <p class="text-slate-600 italic mb-4">"Recomendo de olhos fechados! A [Nome da Terapeuta] é uma luz no caminho de quem busca equilíbrio e autoconhecimento."</p>
                         <p class="text-right font-semibold text-emerald-700">- Cliente Grato(a)</p>
                     </div>
-                    </div>
+                </div>
             </div>
         </section>
+
+        <section id="faq" class="py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12">FAQ – Perguntas Frequentes</h2>
+                <div class="space-y-6 max-w-3xl mx-auto">
+                    <details class="group">
+                        <summary class="flex justify-between items-center">
+                            O que é uma terapeuta integrativa?
+                            <span class="text-emerald-600 group-open:rotate-180 transition-transform duration-300 transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 leading-relaxed">
+                            Uma terapeuta integrativa é uma profissional que utiliza diversas abordagens terapêuticas para cuidar do ser humano como um todo — corpo, mente e emoções — promovendo equilíbrio e bem-estar.
+                        </div>
+                    </details>
+
+                    <details class="group">
+                        <summary class="flex justify-between items-center">
+                            Qual a diferença entre terapia integrativa e psicoterapia?
+                             <span class="text-emerald-600 group-open:rotate-180 transition-transform duration-300 transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 leading-relaxed">
+                            A psicoterapia é uma prática conduzida por psicólogos, focada em questões mentais e emocionais. Já a terapia integrativa combina técnicas complementares (como Reiki, Aromaterapia, Meditação, etc.) que auxiliam no equilíbrio energético e emocional, podendo ser usada junto à psicoterapia, mas não a substitui.
+                        </div>
+                    </details>
+
+                    <details class="group">
+                        <summary class="flex justify-between items-center">
+                            Como funciona o atendimento?
+                             <span class="text-emerald-600 group-open:rotate-180 transition-transform duration-300 transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 leading-relaxed">
+                            O atendimento pode ser presencial ou online (dependendo da terapeuta), e começa com uma escuta acolhedora para entender suas necessidades. A partir disso, são aplicadas as técnicas mais adequadas para cada pessoa.
+                        </div>
+                    </details>
+
+                    <details class="group">
+                        <summary class="flex justify-between items-center">
+                            As terapias integrativas funcionam mesmo?
+                             <span class="text-emerald-600 group-open:rotate-180 transition-transform duration-300 transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 leading-relaxed">
+                            Sim. Muitos clientes relatam alívio de sintomas físicos e emocionais, além de maior clareza mental e bem-estar geral. As terapias são reconhecidas pela OMS como práticas complementares de saúde.
+                        </div>
+                    </details>
+
+                    <details class="group">
+                        <summary class="flex justify-between items-center">
+                            É preciso acreditar para que funcione?
+                             <span class="text-emerald-600 group-open:rotate-180 transition-transform duration-300 transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 leading-relaxed">
+                            Não. Você só precisa estar aberto à experiência. As técnicas agem no campo físico, emocional e energético, independente de crenças.
+                        </div>
+                    </details>
+
+                    <details class="group">
+                        <summary class="flex justify-between items-center">
+                            As terapias substituem tratamentos médicos?
+                             <span class="text-emerald-600 group-open:rotate-180 transition-transform duration-300 transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 leading-relaxed">
+                            Não. As terapias integrativas são complementares e não substituem o acompanhamento médico ou psicológico. Elas podem ser usadas junto com esses tratamentos, potencializando os resultados.
+                        </div>
+                    </details>
+
+                    <details class="group">
+                        <summary class="flex justify-between items-center">
+                            Qual é a duração de uma sessão?
+                             <span class="text-emerald-600 group-open:rotate-180 transition-transform duration-300 transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 leading-relaxed">
+                            Depende da técnica utilizada, mas em geral, as sessões duram entre 45 minutos e 1 hora.
+                        </div>
+                    </details>
+
+                    <details class="group">
+                        <summary class="flex justify-between items-center">
+                            Com que frequência devo fazer as terapias?
+                             <span class="text-emerald-600 group-open:rotate-180 transition-transform duration-300 transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 leading-relaxed">
+                            A frequência depende da sua necessidade e objetivo. Algumas pessoas preferem sessões semanais, outras quinzenais ou mensais. A terapeuta pode orientar o melhor plano para você.
+                        </div>
+                    </details>
+
+                    <details class="group">
+                        <summary class="flex justify-between items-center">
+                            Como faço para agendar uma sessão?
+                             <span class="text-emerald-600 group-open:rotate-180 transition-transform duration-300 transform">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="text-slate-600 leading-relaxed">
+                            Você pode agendar diretamente pelo formulário de contato aqui no site, ou enviar uma mensagem pelo WhatsApp. É simples e rápido!
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="bg-slate-800 text-slate-300 py-12">
@@ -274,9 +436,18 @@
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    // Fecha o menu mobile antes de rolar, se estiver aberto
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
+                    }
+                    // Adiciona um pequeno atraso para garantir que o menu fechou antes de rolar
+                    setTimeout(() => {
+                         targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }, 100);
                 }
             });
         });
@@ -289,7 +460,7 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
         const closeIcon = document.getElementById('close-icon');
-        const mobileNavLinks = document.querySelectorAll('#mobile-menu .nav-link-mobile');
+        // const mobileNavLinks = document.querySelectorAll('#mobile-menu .nav-link-mobile'); // Removido pois o script geral já trata o fechamento
 
         if (mobileMenuButton && mobileMenu && menuIcon && closeIcon) {
             mobileMenuButton.addEventListener('click', () => {
@@ -297,20 +468,10 @@
                 menuIcon.classList.toggle('hidden');
                 closeIcon.classList.toggle('hidden');
             });
-
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden'); // Esconde o menu ao clicar em um link
-                    menuIcon.classList.remove('hidden'); // Garante que o ícone de menu seja mostrado
-                    closeIcon.classList.add('hidden');   // Garante que o ícone de fechar seja escondido
-                    // A rolagem suave já é tratada pelo script geral de navegação
-                });
-            });
         }
 
         // --- Script para destacar link ativo na navegação DESKTOP ao rolar ---
         const sections = document.querySelectorAll('section[id]');
-        // Seleciona apenas os links da navegação desktop
         const navLinksDesktop = document.querySelectorAll('header nav ul li a.nav-link-desktop'); 
 
         window.addEventListener('scroll', () => {
@@ -318,7 +479,6 @@
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                // Ajuste para ativar o link um pouco antes de chegar ao topo da seção
                 if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
                     current = section.getAttribute('id');
                 }
@@ -330,8 +490,7 @@
                     link.classList.add('active');
                 }
             });
-             // Caso especial para o topo da página (seção Início) para desktop
-            if (pageYOffset < sections[0].offsetTop - (sections[0].clientHeight / 3) ) { // Ajuste para corresponder à lógica de ativação
+            if (pageYOffset < sections[0].offsetTop - (sections[0].clientHeight / 3) ) {
                  navLinksDesktop.forEach(link => link.classList.remove('active'));
                  const homeLinkDesktop = document.querySelector('header nav ul li a.nav-link-desktop[href="#inicio"]');
                  if (homeLinkDesktop) {
@@ -340,7 +499,6 @@
             }
         });
 
-        // Define o link "Início" como ativo ao carregar a página para desktop
         document.addEventListener('DOMContentLoaded', () => {
             const homeLinkDesktop = document.querySelector('header nav ul li a.nav-link-desktop[href="#inicio"]');
             if (homeLinkDesktop && window.pageYOffset < sections[0].offsetTop - (sections[0].clientHeight / 3)) {
