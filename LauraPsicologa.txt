@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Laura Pereira de Abreu, psicóloga especialista em Psicoterapia de Orientação Psicanalítica. Atendimento online para adolescentes, adultos e idosos.">
+    <title>Laura Pereira de Abreu - Psicóloga | Psicoterapia Psicanalítica</title>
+    <link rel="icon" type="image/png" href="imagens/psi3.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc; /* Tailwind gray-100 */
+        }
+        /* Cores Primárias (Laranja) */
+        .text-primary-500 { color: #FF7F00; }
+        .bg-primary-500 { background-color: #FF7F00; }
+        .hover\:bg-primary-600:hover { background-color: #CC6600; }
+        .border-primary-500 { border-color: #FF7F00; }
+
+        /* Cores Secundárias (Laranja mais claro para fundos de seção) */
+        .text-secondary-500 { color: #FFA500; }
+        .bg-secondary-100 { background-color: #FFF8F0; }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-800 { animation-delay: 0.8s; }
+
+
+        /* Melhorando line-height para leitura */
+        p {
+            line-height: 1.75;
+        }
+        h1, h2, h3 {
+            line-height: 1.3;
+        }
+
+        /* Estilos para o carrossel de depoimentos */
+        .testimonial-carousel-item {
+            display: none; /* Esconde todos os itens por padrão */
+            transition: opacity 0.5s ease-in-out;
+        }
+        .testimonial-carousel-item.active {
+            display: block; /* Mostra o item ativo */
+            opacity: 1;
+        }
+        .carousel-button {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px; /* rounded-full */
+            background-color: #FF7F00; /* bg-primary-500 */
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .carousel-button:hover {
+            background-color: #CC6600; /* hover:bg-primary-600 */
+        }
+        .carousel-button:disabled {
+            background-color: #A0AEC0; /* gray-400 */
+            cursor: not-allowed;
+        }
+
+        /* Estilo para o botão flutuante do WhatsApp - ALINHAMENTO CORRIGIDO */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366; /* Cor oficial do WhatsApp */
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+            z-index: 100;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <a href="https://wa.me/5516997283658" class="whatsapp-float" target="_blank" aria-label="Fale conosco pelo WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <header class="bg-white shadow-md py-4 sticky top-0 z-40">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-bold text-primary-500">Laura Pereira de Abreu</a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="text-gray-600 hover:text-primary-500 font-medium transition-colors duration-300">Início</a></li>
+                    <li><a href="#sobre" class="text-gray-600 hover:text-primary-500 font-medium transition-colors duration-300">Sobre Mim</a></li>
+                    <li><a href="#servicos" class="text-gray-600 hover:text-primary-500 font-medium transition-colors duration-300">Serviços</a></li>
+                    <li><a href="#depoimentos" class="text-gray-600 hover:text-primary-500 font-medium transition-colors duration-300">Depoimentos</a></li>
+                    <li><a href="#faq" class="text-gray-600 hover:text-primary-500 font-medium transition-colors duration-300">FAQ</a></li>
+                    <li><a href="#contato" class="text-gray-600 hover:text-primary-500 font-medium transition-colors duration-300">Contato</a></li>
+                </ul>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-primary-500 focus:outline-none" aria-label="Abrir Menu">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-30 flex-col items-center justify-center hidden md:hidden transition-transform duration-300 ease-in-out transform translate-x-full">
+        <button id="close-mobile-menu-button" class="absolute top-6 right-6 text-gray-600 hover:text-primary-500 focus:outline-none" aria-label="Fechar Menu">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <ul class="flex flex-col space-y-8 text-2xl text-center">
+            <li><a href="#home" class="text-gray-800 hover:text-primary-500 font-medium" onclick="toggleMobileMenu()">Início</a></li>
+            <li><a href="#sobre" class="text-gray-800 hover:text-primary-500 font-medium" onclick="toggleMobileMenu()">Sobre Mim</a></li>
+            <li><a href="#servicos" class="text-gray-800 hover:text-primary-500 font-medium" onclick="toggleMobileMenu()">Serviços</a></li>
+            <li><a href="#depoimentos" class="text-gray-800 hover:text-primary-500 font-medium" onclick="toggleMobileMenu()">Depoimentos</a></li>
+            <li><a href="#faq" class="text-gray-800 hover:text-primary-500 font-medium" onclick="toggleMobileMenu()">FAQ</a></li>
+            <li><a href="#contato" class="text-gray-800 hover:text-primary-500 font-medium" onclick="toggleMobileMenu()">Contato</a></li>
+        </ul>
+    </div>
+
+    <section id="home" class="bg-gradient-to-br from-orange-500 to-yellow-600 text-white py-20 md:py-32 flex flex-col items-center justify-center text-center min-h-screen">
+        <div class="container mx-auto px-6 flex flex-col items-center">
+            <img src="https://placehold.co/200x200/FFF8F0/FF7F00?text=Laura&font=Inter" alt="Foto de perfil de Laura Pereira de Abreu" class="rounded-full w-40 h-40 md:w-48 md:h-48 object-cover shadow-2xl border-4 border-white mb-6 opacity-0 animate-fade-in-up" onerror="this.onerror=null;this.src='https://placehold.co/200x200/FFF8F0/FF7F00?text=Laura&font=Inter';">
+
+            <h1 class="text-4xl sm:text-5xl font-extrabold mb-2 opacity-0 animate-fade-in-up delay-200" style="text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">
+                Laura Pereira de Abreu
+            </h1>
+
+            <p class="text-lg text-gray-200 mb-6 opacity-0 animate-fade-in-up delay-400" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">
+                Psicóloga – CRP 06/221462 </p>
+
+            <p class="text-xl md:text-2xl mb-10 max-w-xl opacity-0 animate-fade-in-up delay-600" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">
+                Psicóloga Clínica, com foco na Psicoterapia de Orientação Psicanalítica, acolho sua dor e guio sua transformação.
+            </p>
+
+            <a href="#contato" class="bg-white text-primary-500 font-bold py-4 px-10 rounded-lg shadow-xl hover:bg-gray-200 transition duration-300 transform hover:scale-105 inline-block opacity-0 animate-fade-in-up delay-800 text-lg">
+                Agende Sua Consulta Inicial
+            </a>
+        </div>
+    </section>
+
+    <section id="sobre" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 md:gap-16">
+            <div class="md:w-1/2 order-1 md:order-1">
+                <img src="https://placehold.co/600x700/FFF8F0/FF7F00?text=Laura+Abreu&font=Inter" alt="Psicóloga Laura Pereira de Abreu" class="rounded-xl shadow-2xl w-full h-auto object-cover aspect-[3/4]" onerror="this.onerror=null;this.src='https://placehold.co/600x700/FFF8F0/FF7F00?text=Laura+Abreu&font=Inter';">
+            </div>
+            <div class="md:w-1/2 order-2 md:order-2">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Sobre Mim</h2>
+                <p class="text-lg text-gray-700 mb-4">
+                    Prazer, Laura! Tenho 24 anos e sou formada em psicologia pela Universidade Federal de São Carlos (UFSCar). Atualmente meus estudos e prática clínica são focados na teoria psicanalítica.
+                </p>
+                <p class="text-lg text-gray-700 mb-4">
+                    Cada pessoa é única, por isso a psicoterapia de orientação psicanalítica é um tratamento construído com você e para você, sem protocolos prontos e considerando suas vivências, angústias e desejos.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    Desde o segundo ano da graduação, venho atuando na clínica com escuta, cuidado e compromisso ético. A psicoterapia de orientação psicanalítica é um espaço de escuta profunda, onde você será acolhido(a) com respeito, cuidado e sem julgamentos.
+                </p>
+                <a href="#servicos" class="bg-primary-500 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-primary-600 transition duration-300 transform hover:scale-105 inline-block">
+                    Veja Como Posso Ajudar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="missao-visao-valores" class="py-16 md:py-24 bg-secondary-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-16">Meus Pilares de Atuação</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-2xl transition-shadow duration-300">
+                    <div class="text-primary-500 mb-5 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h12A2.25 2.25 0 0020.25 14.25V3M3.75 20.25h16.5M16.5 3.75h.008v.008H16.5V3.75z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Missão</h3>
+                    <p class="text-gray-600">
+                        Oferecer um espaço de escuta profunda e acolhimento, guiando o processo de autoconhecimento para que cada indivíduo compreenda as raízes de seu sofrimento e construa uma vida mais plena e autêntica.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-2xl transition-shadow duration-300">
+                    <div class="text-primary-500 mb-5 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Visão</h3>
+                    <p class="text-gray-600">
+                        Ser reconhecida pela excelência no atendimento psicanalítico online, contribuindo para que mais pessoas acessem o cuidado com a saúde mental e transformem suas vidas a partir de uma compreensão profunda de si.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-2xl transition-shadow duration-300">
+                    <div class="text-primary-500 mb-5 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Valores</h3>
+                    <ul class="text-gray-600 list-none space-y-1">
+                        <li><strong>Ética:</strong> Sigilo e respeito incondicional.</li>
+                        <li><strong>Acolhimento:</strong> Ambiente seguro e sem julgamentos.</li>
+                        <li><strong>Compromisso:</strong> Dedicação à jornada do paciente.</li>
+                        <li><strong>Profundidade:</strong> Busca pelas raízes do sofrimento.</li>
+                        <li><strong>Transformação:</strong> Foco em mudanças duradouras.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Como a Psicoterapia Pode Ajudar Você</h2>
+            <p class="text-lg text-gray-700 mb-16 max-w-2xl mx-auto">
+                A psicoterapia de orientação psicanalítica é um caminho para compreender suas vivências, angústias e desejos, promovendo bem-estar e autoconhecimento.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-secondary-100 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="text-primary-500 mb-5 flex justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a4.5 4.5 0 00-1.5-3.396L12 12.006l-4.5 3.318a4.5 4.5 0 00-1.5 3.396m12 0h.008v.008h-.008v-.008zm-3 0h.008v.008h-.008v-.008zm-6 0h.008v.008h-.008v-.008zm-3 0h.008v.008h-.008v-.008zM12 6a3 3 0 100 6 3 3 0 000-6z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Adolescentes</h3>
+                        <p class="text-gray-600 mb-6">
+                            Apoio para lidar com as complexidades da adolescência, autoimagem, pressões sociais e transições.
+                        </p>
+                    </div>
+                    <a href="#contato" class="mt-auto bg-primary-500 text-white font-medium py-2.5 px-6 rounded-lg hover:bg-primary-600 transition duration-300 inline-block">Apoio ao Adolescente</a>
+                </div>
+                <div class="bg-secondary-100 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="text-primary-500 mb-5 flex justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Adultos</h3>
+                        <p class="text-gray-600 mb-6">
+                            Espaço para explorar questões como ansiedade, depressão, luto, relacionamentos e desafios da vida adulta.
+                        </p>
+                    </div>
+                    <a href="#contato" class="mt-auto bg-primary-500 text-white font-medium py-2.5 px-6 rounded-lg hover:bg-primary-600 transition duration-300 inline-block">Cuidado para Adultos</a>
+                </div>
+                <div class="bg-secondary-100 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="text-primary-500 mb-5 flex justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Idosos</h3>
+                        <p class="text-gray-600 mb-6">
+                            Acompanhamento para questões relacionadas ao envelhecimento, perdas, luto e novas fases da vida.
+                        </p>
+                    </div>
+                     <a href="#contato" class="mt-auto bg-primary-500 text-white font-medium py-2.5 px-6 rounded-lg hover:bg-primary-600 transition duration-300 inline-block">Apoio na Terceira Idade</a>
+                </div>
+                <div class="bg-secondary-100 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="text-primary-500 mb-5 flex justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Relacionamentos</h3>
+                        <p class="text-gray-600 mb-6">
+                            Auxílio na compreensão de padrões em relacionamentos, comunicação e construção de vínculos mais saudáveis.
+                        </p>
+                    </div>
+                    <a href="#contato" class="mt-auto bg-primary-500 text-white font-medium py-2.5 px-6 rounded-lg hover:bg-primary-600 transition duration-300 inline-block">Melhorar Relacionamentos</a>
+                </div>
+                <div class="bg-secondary-100 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="text-primary-500 mb-5 flex justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Ansiedade, Depressão e Luto</h3>
+                        <p class="text-gray-600 mb-6">
+                            Apoio na elaboração de sentimentos de ansiedade, depressão e no processo de luto e perdas.
+                        </p>
+                    </div>
+                    <a href="#contato" class="mt-auto bg-primary-500 text-white font-medium py-2.5 px-6 rounded-lg hover:bg-primary-600 transition duration-300 inline-block">Buscar Apoio</a>
+                </div>
+                <div class="bg-secondary-100 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+                     <div>
+                        <div class="text-primary-500 mb-5 flex justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0112 21a8.987 8.987 0 019-8.738V6.552a8.967 8.967 0 00-6-2.79zM12 9a3 3 0 100 6 3 3 0 000-6z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Dificuldades nos Estudos</h3>
+                        <p class="text-gray-600 mb-6">
+                            Orientação para estudantes com dificuldades de organização, procrastinação e rendimento acadêmico.
+                        </p>
+                    </div>
+                    <a href="#contato" class="mt-auto bg-primary-500 text-white font-medium py-2.5 px-6 rounded-lg hover:bg-primary-600 transition duration-300 inline-block">Ajuda nos Estudos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="py-16 md:py-24 bg-secondary-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12">Resultados que Inspiram Confiança</h2>
+            <div class="relative max-w-2xl mx-auto">
+                <div id="testimonial-carousel" class="overflow-hidden">
+                    <div class="testimonial-carousel-item active">
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <p class="text-lg italic text-gray-700 mb-6">
+                                "A Laura me ajudou a entender as raízes da minha ansiedade. Com a psicanálise, comecei a me conhecer de verdade e a lidar com as coisas de uma forma mais leve. Sou muito grata pela escuta e pelo acolhimento."
+                            </p>
+                            <p class="font-semibold text-primary-500">- Cliente A. (Superou a Ansiedade)</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-carousel-item">
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <p class="text-lg italic text-gray-700 mb-6">
+                                "Eu estava passando por um luto muito difícil e a Laura foi essencial para me ajudar a atravessar esse período. Seu cuidado e a profundidade das sessões me deram forças para seguir em frente."
+                            </p>
+                            <p class="font-semibold text-primary-500">- Cliente B. (Apoio no Luto)</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-carousel-item">
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <p class="text-lg italic text-gray-700 mb-6">
+                                "Minha filha adolescente estava com muitas dificuldades na escola e em casa. A Laura conseguiu se conectar com ela e a ajudou a se organizar e a se sentir mais segura. Agradeço muito o trabalho dela."
+                            </p>
+                            <p class="font-semibold text-primary-500">- Mãe de Adolescente (Dificuldades nos Estudos)</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-carousel-item">
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <p class="text-lg italic text-gray-700 mb-6">
+                                "Sempre tive problemas em meus relacionamentos, e com a terapia da Laura, pude enxergar padrões e me libertar de repetições. Hoje consigo ter relações mais saudáveis e felizes."
+                            </p>
+                            <p class="font-semibold text-primary-500">- Cliente C. (Melhora em Relacionamentos)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center space-x-4 mt-8">
+                    <button id="prev-testimonial" class="carousel-button" aria-label="Depoimento Anterior">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                        </svg>
+                    </button>
+                    <button id="next-testimonial" class="carousel-button" aria-label="Próximo Depoimento">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+             <a href="#contato" class="mt-12 bg-primary-500 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-primary-600 transition duration-300 transform hover:scale-105 inline-block">
+                Dê o Primeiro Passo Você Também
+            </a>
+        </div>
+    </section>
+
+    <section id="faq" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12">Dúvidas Frequentes</h2>
+            <div class="space-y-6">
+                <div>
+                    <button class="w-full text-left py-4 px-6 bg-white rounded-lg shadow-md hover:shadow-lg focus:outline-none transition-shadow duration-300 flex justify-between items-center">
+                        <span class="text-lg font-medium text-gray-800">Como funciona a Psicoterapia de Orientação Psicanalítica?</span>
+                        <svg class="w-5 h-5 text-primary-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="bg-white rounded-b-lg p-6 mt-[-2px] shadow-md hidden">
+                        <p class="text-gray-700">A psicoterapia de orientação psicanalítica é um espaço de escuta profunda, onde você será acolhido(a) com respeito, cuidado e sem julgamentos. Mais do que tratar os seus sintomas, buscaremos juntos(as) compreender as raízes do seu sofrimento, muitas vezes ligadas à infância, experiências difíceis, repetições emocionais ou conflitos internos.</p>
+                    </div>
+                </div>
+                <div>
+                    <button class="w-full text-left py-4 px-6 bg-white rounded-lg shadow-md hover:shadow-lg focus:outline-none transition-shadow duration-300 flex justify-between items-center">
+                        <span class="text-lg font-medium text-gray-800">Quanto tempo dura o tratamento?</span>
+                        <svg class="w-5 h-5 text-primary-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="bg-white rounded-b-lg p-6 mt-[-2px] shadow-md hidden">
+                        <p class="text-gray-700">A duração do tratamento varia de pessoa para pessoa, pois é um processo individual e sem protocolos prontos. O foco é na sua jornada de autoconhecimento e na compreensão das suas vivências. Discutiremos o processo durante nossas primeiras sessões.</p>
+                    </div>
+                </div>
+                <div>
+                    <button class="w-full text-left py-4 px-6 bg-white rounded-lg shadow-md hover:shadow-lg focus:outline-none transition-shadow duration-300 flex justify-between items-center">
+                        <span class="text-lg font-medium text-gray-800">As sessões são online ou presenciais?</span>
+                        <svg class="w-5 h-5 text-primary-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="bg-white rounded-b-lg p-6 mt-[-2px] shadow-md hidden">
+                        <p class="text-gray-700">Ofereço atendimentos online, proporcionando flexibilidade e conforto para você realizar suas sessões de onde estiver, tanto no Brasil quanto para brasileiros no exterior.</p>
+                    </div>
+                </div>
+                 <div>
+                    <button class="w-full text-left py-4 px-6 bg-white rounded-lg shadow-md hover:shadow-lg focus:outline-none transition-shadow duration-300 flex justify-between items-center">
+                        <span class="text-lg font-medium text-gray-800">Qual o valor da consulta?</span>
+                        <svg class="w-5 h-5 text-primary-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="bg-white rounded-b-lg p-6 mt-[-2px] shadow-md hidden">
+                        <p class="text-gray-700">Para informações sobre valores e pacotes de sessões, por favor, entre em contato. Terei prazer em fornecer todos os detalhes e esclarecer suas dúvidas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-16 md:py-24 bg-secondary-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12">Pronto para Começar Sua Transformação?</h2>
+            <div class="flex flex-col lg:flex-row gap-10 md:gap-16 items-start">
+                <div class="lg:w-1/2 bg-white p-8 md:p-10 rounded-xl shadow-xl w-full">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Envie uma Mensagem</h3>
+                    <form action="#" method="POST" class="space-y-5">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-1.5">Nome Completo</label>
+                            <input type="text" id="name" name="name" class="w-full p-3.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 transition-shadow" placeholder="Seu nome completo" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-1.5">Seu Melhor Email</label>
+                            <input type="email" id="email" name="email" class="w-full p-3.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 transition-shadow" placeholder="Ex: seu.email@dominio.com" required>
+                        </div>
+                         <div>
+                            <label for="phone_contact" class="block text-gray-700 font-medium mb-1.5">Telefone/WhatsApp (Opcional)</label>
+                            <input type="tel" id="phone_contact" name="phone_contact" class="w-full p-3.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 transition-shadow" placeholder="(XX) XXXXX-XXXX">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-1.5">Sua Mensagem</label>
+                            <textarea id="message" name="message" rows="5" class="w-full p-3.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 transition-shadow" placeholder="Como posso te ajudar?" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary-500 text-white font-bold py-3.5 px-6 rounded-lg hover:bg-primary-600 transition duration-300 transform hover:scale-105 text-lg">
+                            Enviar Mensagem Agora
+                        </button>
+                    </form>
+                </div>
+                <div class="lg:w-1/2 bg-white p-8 md:p-10 rounded-xl shadow-xl w-full mt-10 lg:mt-0">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-8">Ou Fale Comigo Diretamente:</h3>
+                    <div class="space-y-6 text-gray-700">
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 mr-4 text-primary-500 shrink-0 mt-1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-800">Telefone / WhatsApp</h4>
+                                <a href="tel:+5516997283658" class="hover:text-primary-500 transition-colors duration-300 text-lg">(16) 99728-3658</a>
+                                <p class="text-sm text-gray-500">Clique para ligar ou adicione no WhatsApp.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 mr-4 text-primary-500 shrink-0 mt-1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-800">Email</h4>
+                                <a href="mailto:lauraabreupsi@gmail.com" class="hover:text-primary-500 transition-colors duration-300 text-lg break-all">lauraabreupsi@gmail.com</a>
+                                <p class="text-sm text-gray-500">Responderei o mais breve possível.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 mr-4 text-primary-500 shrink-0 mt-1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-800">Localização (Atendimento Online)</h4>
+                                <p class="text-lg">Atendimento online para todo o Brasil e brasileiros no exterior.</p>
+                                <p class="text-sm text-gray-500">Sessões realizadas com conforto e privacidade.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 mr-4 text-primary-500 shrink-0 mt-1">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                            </svg>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-800">Redes Sociais</h4>
+                                <p class="text-lg">
+                                    <a href="https://www.instagram.com/laurabreu.psi/" target="_blank" class="hover:text-primary-500 transition-colors duration-300">Instagram: @laurabreu.psi</a><br>
+                                    <a href="https://www.tiktok.com/_laurabreu" target="_blank" class="hover:text-primary-500 transition-colors duration-300">TikTok: _laurabreu</a>
+                                </p>
+                                <p class="text-sm text-gray-500">Conecte-se e acompanhe meu trabalho.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-xl font-semibold text-white mb-3">Laura Pereira de Abreu</h4>
+                    <p class="text-sm">Psicóloga Clínica - CRP 06/221462</p>
+                    <p class="text-sm">Psicoterapia de Orientação Psicanalítica</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Links Rápidos</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="hover:text-secondary-500 transition-colors">Início</a></li>
+                        <li><a href="#sobre" class="hover:text-secondary-500 transition-colors">Sobre Mim</a></li>
+                        <li><a href="#servicos" class="hover:text-secondary-500 transition-colors">Serviços</a></li>
+                        <li><a href="#depoimentos" class="hover:text-secondary-500 transition-colors">Depoimentos</a></li>
+                        <li><a href="#faq" class="hover:text-secondary-500 transition-colors">FAQ</a></li>
+                        <li><a href="#contato" class="hover:text-secondary-500 transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Contato</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="tel:+5516997283658" class="hover:text-secondary-500 transition-colors">(16) 99728-3658</a></li>
+                        <li><a href="mailto:lauraabreupsi@gmail.com" class="hover:text-secondary-500 transition-colors break-all">lauraabreupsi@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-sm">
+                <p>&copy; <span id="currentYear"></span> Laura Pereira de Abreu Psicologia. Todos os direitos reservados.</p>
+                <p class="mt-1">Desenvolvido por Jorge Carvalho, Designer Gráfico.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script para Menu Mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            if (mobileMenu.classList.contains('translate-x-full')) {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+            } else {
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+            }
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        closeMobileMenuButton.addEventListener('click', toggleMobileMenu);
+
+        // Script para FAQ (Accordion)
+        const faqButtons = document.querySelectorAll('#faq button');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('svg');
+                faqButtons.forEach(otherButton => {
+                    if (otherButton !== button) {
+                        otherButton.nextElementSibling.classList.add('hidden');
+                        otherButton.querySelector('svg').classList.remove('rotate-180');
+                    }
+                });
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Script para ano atual no rodapé
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Animações de entrada com Intersection Observer
+        const animatedElements = document.querySelectorAll('.animate-fade-in-up');
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+        });
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // Script para Carrossel de Depoimentos
+        const carousel = document.getElementById('testimonial-carousel');
+        const items = carousel.querySelectorAll('.testimonial-carousel-item');
+        const prevButton = document.getElementById('prev-testimonial');
+        const nextButton = document.getElementById('next-testimonial');
+        let currentIndex = 0;
+        const totalItems = items.length;
+
+        function showItem(index) {
+            items.forEach((item, i) => {
+                item.classList.remove('active');
+                if (i === index) {
+                    item.classList.add('active');
+                }
+            });
+            // Habilitar/desabilitar botões
+            if (prevButton && nextButton) { // Checa se os botões existem
+                prevButton.disabled = index === 0;
+                nextButton.disabled = index === totalItems - 1;
+            }
+        }
+
+        if (prevButton && nextButton) { // Checa se os botões existem antes de adicionar event listeners
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    showItem(currentIndex);
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < totalItems - 1) {
+                    currentIndex++;
+                    showItem(currentIndex);
+                }
+            });
+        }
+
+
+        // Mostrar o primeiro item inicialmente
+        if (totalItems > 0) {
+            showItem(currentIndex);
+        } else {
+             // Se não houver depoimentos, esconder botões
+            if(prevButton) prevButton.style.display = 'none';
+            if(nextButton) nextButton.style.display = 'none';
+        }
+
+    </script>
+</body>
+</html>
